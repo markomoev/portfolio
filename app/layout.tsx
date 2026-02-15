@@ -1,4 +1,5 @@
-import Hello from "./hello"
+import "./global/globals.css";
+
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <html>
