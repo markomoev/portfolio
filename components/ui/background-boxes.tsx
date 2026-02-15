@@ -21,19 +21,19 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
       {rows.map((_, i) => (
         <motion.div
           key={`row` + i}
-          className="relative h-8 w-16 border-l border-slate-300"
+          className="relative h-8 w-16 border-l border-slate-200 bg-transparent"
         >
           {cols.map((_, j) => (
             <motion.div
               whileHover={{
-                backgroundColor: "#e2e8f0",
+                backgroundColor: "rgba(186, 230, 253, 0.3)", // Light Sky/Cyan
                 transition: { duration: 0 },
               }}
               animate={{
                 transition: { duration: 2 },
               }}
               key={`col` + j}
-              className="relative h-8 w-16 bg-white border-t border-r border-slate-300"
+              className="relative h-8 w-16 border-r border-t border-slate-200"
             >
               {j % 2 === 0 && i % 2 === 0 ? (
                 <svg
