@@ -1,15 +1,24 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { cn } from "@/lib/utils";
 import { useAudio } from "@/hooks/use-audio";
+import { useTranslation } from "react-i18next";
+import { useRouter, usePathname } from "next/navigation";
+import i18nConfig from "../i18nConfig";
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
   const playSound = useAudio("/sounds/click-navbar.mp3");
-  
+
+  const router = useRouter()
+  const currentPathname = usePathname();
+  const {t, i18n} = useTranslation();
+  const currentLocale = i18n.language;
+
+  // scrolling the active page
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
     if (latest > previous && latest > 150) {
@@ -20,10 +29,36 @@ export default function Navbar() {
   });
 
   const links = [
-    { name: "home" },
-    { name: "about me" },
-    { name: "connect" },
-  ];    
+    { id: "home", label: t('navbar-1') },
+    { id: "about", label: t('navbar-2') },
+    { id: "connect", label: t('navbar-3') },
+  ]; 
+  
+  // button for translation
+  const handleTranslation = (newLocale: string) => {
+    // cookies
+    const days = 30;
+    const date = new Date();
+    date.setTime(date.getTime() + days * 2 * 60 * 60 * 1000);
+    const expires = date.toUTCString();
+    document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
+  
+    // redirecting to the right path for the language
+    if (
+      currentLocale === i18nConfig.defaultLocale &&
+      !i18nConfig.prefixDefault
+    ) {
+      router.push("/" + newLocale + currentPathname)
+    }
+    else {
+      router.push(
+        currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
+      );
+    }
+
+    router.refresh()
+  }
+
 
   return (
     <motion.div 
@@ -59,26 +94,63 @@ export default function Navbar() {
         <div className="flex gap-1">
           {links.map((link) => (
             <button
-              key={link.name}
+              key={link.id}
               onClick={() => {
-                setActive(link.name);
+                setActive(link.id);
                 playSound();
               }}
               className={cn(
                 "relative px-4 py-2 text-sm font-medium capitalize transition-colors duration-200 rounded-full",
-                active === link.name ? "text-white" : "text-slate-600 hover:text-slate-900"
+                active === link.id ? "text-white" : "text-slate-600 hover:text-slate-900"
               )}
             >   
-              {active === link.name && (
+              {active === link.id && (
                 <motion.div
                   layoutId="active-pill"
                   className="absolute inset-0 bg-slate-900 rounded-full"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-              <span className="relative z-10">{link.name}</span>
+              <span className="relative z-10">{link.label}</span>
             </button>
           ))}
+
+          <div className="w-px h-6 bg-slate-200 mx-2 self-center" />
+
+          <div className="flex bg-slate-100 rounded-full p-1 border border-slate-200">
+            <button
+              onClick={() => handleTranslation("en")}
+              className={cn(
+                "relative px-3 py-1.5 text-xs font-bold rounded-full transition-colors duration-200 min-w-10",
+                currentLocale === "en" ? "text-white" : "text-slate-500 hover:text-slate-900"
+              )}
+            >
+              {currentLocale === "en" && (
+                <motion.div
+                  layoutId="active-lang"
+                  className="absolute inset-0 bg-slate-900 rounded-full shadow-sm"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                />
+              )}
+              <span className="relative z-10">EN</span>
+            </button>
+            <button
+              onClick={() => handleTranslation("bg")}
+              className={cn(
+                "relative px-3 py-1.5 text-xs font-bold rounded-full transition-colors duration-200 min-w-10",
+                currentLocale === "bg" ? "text-white" : "text-slate-500 hover:text-slate-900"
+              )}
+            >
+              {currentLocale === "bg" && (
+                <motion.div
+                  layoutId="active-lang"
+                  className="absolute inset-0 bg-slate-900 rounded-full shadow-sm"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                />
+              )}
+              <span className="relative z-10">BG</span>
+            </button>
+          </div>
         </div>
       </nav>
     </motion.div>
