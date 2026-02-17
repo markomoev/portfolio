@@ -73,7 +73,10 @@ export default function Navbar() {
       <nav
         className="flex items-center gap-2 p-1.5 rounded-full border border-slate-200 bg-white/80 backdrop-blur-md shadow-sm"
       >
-        <div className="group flex items-center px-4 py-2 font-bold text-indigo-600 border-r border-slate-200 mr-2 cursor-pointer transition-all duration-700 ease-in-out">
+        <div 
+          onMouseEnter={() => playSound()}
+          className="group flex items-center px-4 py-2 font-bold text-indigo-600 border-r border-slate-200 mr-2 cursor-pointer transition-all duration-700 ease-in-out"
+        >
           <div className="flex items-center">
             <span>M</span>
             <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-700 ease-in-out group-hover:max-w-16 group-hover:opacity-100">
@@ -93,15 +96,18 @@ export default function Navbar() {
         
         <div className="flex gap-1">
           {links.map((link) => (
-            <button
+            <motion.button
               key={link.id}
               onClick={() => {
                 setActive(link.id);
                 playSound();
               }}
+              onMouseEnter={() => playSound()}
+              whileHover="hovered"
+              initial="initial"
               className={cn(
-                "relative px-4 py-2 text-sm font-medium capitalize transition-colors duration-200 rounded-full",
-                active === link.id ? "text-white" : "text-slate-600 hover:text-slate-900"
+                "relative px-4 py-2 text-sm font-medium capitalize rounded-full group overflow-hidden",
+                active === link.id ? "text-white" : "text-slate-600 hover:text-slate-900" 
               )}
             >   
               {active === link.id && (
@@ -111,17 +117,34 @@ export default function Navbar() {
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-              <span className="relative z-10">{link.label}</span>
-            </button>
+               <span className="relative z-10 block overflow-hidden">
+                <motion.div
+                  variants={{
+                    initial: { y: 0 },
+                    hovered: { y: "-100%" }
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <span className="block h-5 leading-5">{link.label}</span>
+                  <span className="block h-5 leading-5 absolute top-full left-0 right-0">{link.label}</span>
+                </motion.div>
+              </span>
+            </motion.button>
           ))}
 
           <div className="w-px h-6 bg-slate-200 mx-2 self-center" />
 
           <div className="flex bg-slate-100 rounded-full p-1 border border-slate-200">
-            <button
-              onClick={() => handleTranslation("en")}
+            <motion.button
+              onClick={() => {handleTranslation("en"); playSound()}}
+              onMouseEnter={() => playSound()}
+              whileHover="hovered"
+              initial="initial"
               className={cn(
-                "relative px-3 py-1.5 text-xs font-bold rounded-full transition-colors duration-200 min-w-10",
+                "relative px-3 py-1.5 text-xs font-bold rounded-full transition-colors duration-200 min-w-10 group overflow-hidden",
                 currentLocale === "en" ? "text-white" : "text-slate-500 hover:text-slate-900"
               )}
             >
@@ -132,12 +155,29 @@ export default function Navbar() {
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-              <span className="relative z-10">EN</span>
-            </button>
-            <button
-              onClick={() => handleTranslation("bg")}
+               <span className="relative z-10 block overflow-hidden">
+                <motion.div
+                  variants={{
+                    initial: { y: 0 },
+                    hovered: { y: "-100%" }
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <span className="block h-4 leading-4">EN</span>
+                  <span className="block h-4 leading-4 absolute top-full left-0 right-0">EN</span>
+                </motion.div>
+              </span>
+            </motion.button>
+            <motion.button
+              onClick={() => {handleTranslation("bg"); playSound()}}
+              onMouseEnter={() => playSound()}
+              whileHover="hovered"
+               initial="initial"
               className={cn(
-                "relative px-3 py-1.5 text-xs font-bold rounded-full transition-colors duration-200 min-w-10",
+                "relative px-3 py-1.5 text-xs font-bold rounded-full transition-colors duration-200 min-w-10 group overflow-hidden",
                 currentLocale === "bg" ? "text-white" : "text-slate-500 hover:text-slate-900"
               )}
             >
@@ -148,8 +188,22 @@ export default function Navbar() {
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-              <span className="relative z-10">BG</span>
-            </button>
+               <span className="relative z-10 block overflow-hidden">
+                <motion.div
+                  variants={{
+                    initial: { y: 0 },
+                    hovered: { y: "-100%" }
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <span className="block h-4 leading-4">BG</span>
+                  <span className="block h-4 leading-4 absolute top-full left-0 right-0">BG</span>
+                </motion.div>
+              </span>
+            </motion.button>
           </div>
         </div>
       </nav>

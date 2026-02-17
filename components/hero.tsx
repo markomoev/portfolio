@@ -1,7 +1,7 @@
 "use client";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -26,7 +26,7 @@ export default function Hero() {
           
           <h1 className="w-full font-black tracking-tighter leading-[0.8] text-slate-900 mb-8 flex flex-col uppercase text-center md:text-left">
             <span className="block text-[7.5vw] md:text-[8.5vw] text-slate-900">
-              <span className="text-indigo-600">{t('headline_01').split(' ').slice(0, 2).join(' ')}</span> {t('headline_01').split(' ').slice(2).join(' ')}
+              <span className="text-indigo-600">{t('headline_01').split(' ').slice(0, 2).join(' ')}</span> {t('headline_01').split(' ').slice(2).join(' ').replace(/ ([^ ]+)$/, "\u00A0$1")}
             </span>
             <span className="block text-[7.5vw] md:text-[8.5vw] text-slate-900">
               {t('headline_02')}
