@@ -3,8 +3,9 @@ import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import initTranslations from "../i18next";
 import TranslationsProvider from "@/components/TranslationProvider";
+import Skills from "@/components/skills";
 
-const i18nNamespaces = ['default'];
+const i18nNamespaces = ['default', 'skills'];
 
 export default async function Home({params}: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -16,6 +17,7 @@ export default async function Home({params}: { params: Promise<{ locale: string 
         <BackgroundBoxesDemo>
           <Navbar />
           <Hero/>
+          <Skills/>
         </BackgroundBoxesDemo>
       </main>
     </TranslationsProvider>

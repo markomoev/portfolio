@@ -1,12 +1,11 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 
 export const useAudio = (url: string) => {
   // Using simple HTML Audio element
   const play = useCallback(() => {
     const audio = new Audio(url);
-    audio.volume = 0.2; // Keep it subtle by default
+    audio.volume = 0.2; 
     audio.play().catch((e) => {
-      // Audio playback failed (usually due to user interaction required first)
       console.warn("Audio playback failed", e);
     });
   }, [url]);
