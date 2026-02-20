@@ -21,7 +21,7 @@ export default function Hero() {
         {/* Main Title Area (Editorial style, full width) */}
         <div className="flex flex-col gap-8 w-full">
           <p className="text-sm md:text-base font-medium tracking-wide text-slate-500 uppercase">
-             Marko Moev — Website Developer
+             Marko Moev — Web & Frontend Developer
           </p>
           
           <h1 className="w-full font-black tracking-tighter leading-[0.8] text-slate-900 mb-8 flex flex-col uppercase text-center md:text-left">
