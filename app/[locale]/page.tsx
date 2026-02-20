@@ -1,4 +1,3 @@
-import { BackgroundBoxesDemo } from "../../components/ui/background";
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import initTranslations from "../i18next";
@@ -15,12 +14,10 @@ export default async function Home({params}: { params: Promise<{ locale: string 
   return (
     <TranslationsProvider resources={resources} locale={locale} namespaces={i18nNamespaces}>
       <main>
-        <BackgroundBoxesDemo>
           <Navbar/>
           <Hero/>
           <Skills/>
           <Projects/>
-        </BackgroundBoxesDemo>
       </main>
     </TranslationsProvider>
   );
