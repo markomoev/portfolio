@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { useAudio } from "@/hooks/use-audio";
 import { useTranslation } from "react-i18next";
 import { useRouter, usePathname } from "next/navigation";
-import i18nConfig from "../i18nConfig";
+import i18nConfig from "../../i18nConfig";
 
 export default function Navbar() {
   const [active, setActive] = useState("home");

@@ -6,7 +6,7 @@ export default function Skills(){
     const { t } = useTranslation('skills');
 
     return(
-        <div className="w-full py-6 md:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="w-full py-6 md:py-12">
             <div className="w-full bg-slate-950 rounded-[2rem] md:rounded-[2.5rem] py-12 md:py-24 text-slate-100 shadow-xl overflow-hidden">
                 <div className="w-full flex flex-col lg:flex-row">
                 
