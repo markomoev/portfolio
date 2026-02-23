@@ -68,14 +68,14 @@ export default function Navbar() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-8 left-0 right-0 flex justify-center z-50 pointer-events-auto"
+      className="fixed top-4 md:top-8 left-0 right-0 flex justify-center z-50 pointer-events-auto px-4"
     >
       <nav
-        className="flex items-center gap-2 p-1.5 rounded-full border border-slate-200 bg-white/80 backdrop-blur-md shadow-sm"
+        className="flex items-center justify-between w-full max-w-fit gap-1 md:gap-2 p-1.5 rounded-full border border-slate-200 bg-white/80 backdrop-blur-md shadow-sm"
       >
         <div 
           onMouseEnter={() => playSound()}
-          className="group flex items-center px-4 py-2 font-bold text-indigo-600 border-r border-slate-200 mr-2 cursor-pointer transition-all duration-700 ease-in-out"
+          className="group hidden md:flex items-center px-4 py-2 font-bold text-indigo-600 border-r border-slate-200 mr-2 cursor-pointer transition-all duration-700 ease-in-out"
         >
           <div className="flex items-center">
             <span>M</span>
@@ -94,7 +94,7 @@ export default function Navbar() {
           </div>
         </div>
         
-        <div className="flex gap-1">
+        <div className="flex gap-0.5 md:gap-1 items-center">
           {links.map((link) => (
             <motion.button
               key={link.id}
@@ -106,7 +106,7 @@ export default function Navbar() {
               whileHover="hovered"
               initial="initial"
               className={cn(
-                "relative px-4 py-2 text-sm font-medium capitalize rounded-full group overflow-hidden",
+                "relative px-3 md:px-4 py-2 text-xs md:text-sm font-medium capitalize rounded-full group overflow-hidden",
                 active === link.id ? "text-white" : "text-slate-600 hover:text-slate-900" 
               )}
             >   
