@@ -14,7 +14,7 @@ export default function Skills(){
                 <div className="w-full lg:w-1/2 px-6 md:px-16 lg:px-24 flex flex-col justify-center">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
                         {t('headline').split('\n')[0]} <br/>
-                        <span className="text-indigo-500">{t('headline').split('\n')[1]}</span>
+                        <span className="text-indigo-600">{t('headline').split('\n')[1]}</span>
                     </h2>
                     
                     <p className="text-base md:text-lg text-slate-400 mb-8 md:mb-12 max-w-xl leading-relaxed">
@@ -25,7 +25,7 @@ export default function Skills(){
                         
                         {/* Pillar 1 */}
                         <div className="flex flex-col gap-3 p-6 border border-slate-800 rounded-2xl bg-slate-800/30 hover:bg-slate-800/60 transition-colors duration-300">
-                            <div className="flex items-center gap-2 text-indigo-400 font-semibold text-lg mb-2">
+                            <div className="flex items-center gap-2 text-indigo-600 font-semibold text-lg mb-2">
                                 <Brain className="w-5 h-5" />
                                 <h3>{t('skill-1-headline')}</h3>
                             </div>
@@ -36,7 +36,7 @@ export default function Skills(){
 
                         {/* Pillar 2 */}
                         <div className="flex flex-col gap-3 p-6 border border-slate-800 rounded-2xl bg-slate-800/30 hover:bg-slate-800/60 transition-colors duration-300">
-                            <div className="flex items-center gap-2 text-indigo-400 font-semibold text-lg mb-2">
+                            <div className="flex items-center gap-2 text-indigo-600 font-semibold text-lg mb-2">
                                 <Code2 className="w-5 h-5" />
                                 <h3>{t('skill-2-headline')}</h3>
                             </div>
@@ -47,7 +47,7 @@ export default function Skills(){
 
                         {/* Pillar 3 */}
                         <div className="flex flex-col gap-3 p-6 border border-slate-800 rounded-2xl bg-slate-800/30 hover:bg-slate-800/60 transition-colors duration-300">
-                            <div className="flex items-center gap-2 text-indigo-400 font-semibold text-lg mb-2">
+                            <div className="flex items-center gap-2 text-indigo-600 font-semibold text-lg mb-2">
                                 <Users className="w-5 h-5" />
                                 <h3>{t('skill-3-headline')}</h3>
                             </div>
@@ -58,7 +58,7 @@ export default function Skills(){
 
                         {/* Pillar 4 */}
                         <div className="flex flex-col gap-3 p-6 border border-slate-800 rounded-2xl bg-slate-800/30 hover:bg-slate-800/60 transition-colors duration-300">
-                            <div className="flex items-center gap-2 text-indigo-400 font-semibold text-lg mb-2">
+                            <div className="flex items-center gap-2 text-indigo-600 font-semibold text-lg mb-2">
                                 <Rocket className="w-5 h-5" />
                                 <h3>{t('skill-4-headline')}</h3>
                             </div>
