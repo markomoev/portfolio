@@ -7,7 +7,7 @@ export default function Hero() {
   const { t } = useTranslation();
 
   return (
-    <div className="relative min-h-screen w-full flex flex-col justify-center px-4 sm:px-10 lg:px-20 bg-transparent overflow-hidden pointer-events-none pt-24 md:pt-32">
+    <div className="relative min-h-screen w-full flex flex-col justify-center px-4 sm:px-10 lg:px-20 bg-transparent overflow-hidden pointer-events-none pt-10 md:pt-32">
 
       {/* Top Decoration / Branding (Minimal) */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
