@@ -18,6 +18,11 @@ export default async function initTranslations(
       resourcesToBackend(
         (language: string, namespace: string) =>
           import(`@/locales/${language}/${namespace}.json`)
+            .then((module) => module.default || module)
+            .catch((error) => {
+              console.error(`Failed to load translation: ${language}/${namespace}`, error);
+              return {}; 
+            })
       )
     );
   }
