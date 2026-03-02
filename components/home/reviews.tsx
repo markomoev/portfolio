@@ -4,7 +4,7 @@ import { Star, Quote } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Reviews() {
-  const { t } = useTranslation('reviews');
+  // const { t } = useTranslation();
 
   const reviews = [
     {
@@ -30,7 +30,7 @@ export default function Reviews() {
             What Clients Say
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Feedback from people I've had the pleasure of working with.
+            Feedback from people I&apos;ve had the pleasure of working with.
             </p>
         </div>
 
@@ -46,7 +46,7 @@ export default function Reviews() {
                 </div>
 
                 <p className="text-slate-700 text-lg leading-relaxed mb-8 relative z-10 font-medium">
-                  "{item.review}"
+                  &quot;{item.review}&quot;
                 </p>
 
                 <div className="flex items-center gap-4">

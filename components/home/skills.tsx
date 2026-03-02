@@ -80,7 +80,7 @@ export default function Skills(){
                             <div className="text-slate-700 font-mono text-sm p-4 border border-slate-800 rounded-lg bg-slate-950/50">
                                 &lt;ImagePlaceholder /&gt;
                                 <br/>
-                                <span className="text-xs text-slate-600">// Add your professional photo here</span>
+                                <span className="text-xs text-slate-600">{`// Add your professional photo here`}</span>
                             </div>
                         </div>
                     </div>

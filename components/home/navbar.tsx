@@ -46,6 +46,7 @@ export default function Navbar() {
     const date = new Date();
     date.setTime(date.getTime() + days * 2 * 60 * 60 * 1000);
     const expires = date.toUTCString();
+    // eslint-disable-next-line
     document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
   
     // redirecting to the right path for the language
@@ -168,7 +169,7 @@ export default function Navbar() {
           exit={{ x: "100%" }}
           transition={{ type: "spring", damping: 30, stiffness: 300 }}
           style={{ backgroundColor: "white" }}
-          className="fixed inset-0 z-9999 md:hidden flex flex-col p-6 overflow-y-auto h-dvh w-screen safe-area-inset-bottom"
+          className="fixed inset-0 z-9999 md:hidden flex flex-col p-6 overflow-y-auto h-dvh w-screen pb-[env(safe-area-inset-bottom)]"
         >
             <div className="flex justify-between items-start w-full mb-8">
                 <div className="flex items-center gap-3">

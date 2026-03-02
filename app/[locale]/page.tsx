@@ -11,6 +11,7 @@ const i18nNamespaces = ['default', 'skills', 'projects', 'hero_02', 'reviews'];
 
 export default async function Home({params}: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const {resources} : any = await initTranslations(locale, i18nNamespaces) 
 
   return (
