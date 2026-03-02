@@ -1,7 +1,6 @@
 'use client';
 
 import { Star, Quote } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 
 export default function Reviews() {
   // const { t } = useTranslation();
