@@ -3,6 +3,7 @@
 import React from 'react';
 import { ArrowUpRight, Github, Globe, LayoutTemplate, Stethoscope } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'motion/react';
 
 export default function Projects() {
     const { t } = useTranslation('projects');
@@ -12,11 +13,23 @@ export default function Projects() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
                 
                 {/* 1. Brands that trusted me */}
-                <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-slate-900 mb-8 md:mb-16 text-center tracking-tight">
+                <motion.h2 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    className="text-2xl md:text-3xl lg:text-5xl font-bold text-slate-900 mb-8 md:mb-16 text-center tracking-tight"
+                >
                     {t('headline-1')}
-                </h2>
+                </motion.h2>
 
-                <div className="flex justify-center mb-16 md:mb-32 w-full opacity-90">
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    className="flex justify-center mb-16 md:mb-32 w-full opacity-90"
+                >
                      <a href="https://drstoykov.net/" target="_blank" rel="noopener noreferrer" className="w-full max-w-sm bg-slate-50 border border-slate-100 rounded-3xl flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover:shadow-xl cursor-pointer group p-8 transform hover:-translate-y-1">
                         <div className="flex flex-col items-center gap-4">
                              <div className="bg-indigo-600 text-white rounded-2xl p-4 shadow-md group-hover:scale-110 transition-transform duration-300">
@@ -31,18 +44,30 @@ export default function Projects() {
                             </div>
                         </div>
                     </a>
-                </div>
+                </motion.div>
 
 
                 {/* 2. My Personal Projects */}
-                <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-slate-900 mb-8 md:mb-16 text-center tracking-tight">
+                <motion.h2 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    className="text-2xl md:text-3xl lg:text-5xl font-bold text-slate-900 mb-8 md:mb-16 text-center tracking-tight"
+                >
                     {t('headline-2')}
-                </h2>
+                </motion.h2>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full">
                     
                     {/* Project 1 - Coinwise */}
-                    <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl transition-all duration-300 group flex flex-col h-full transform hover:-translate-y-1">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl transition-all duration-300 group flex flex-col h-full transform hover:-translate-y-1"
+                    >
                         <div className="flex justify-between items-start mb-6">
                             <div className="p-3 bg-white rounded-2xl shadow-sm group-hover:scale-110 transition-transform duration-300">
                                 <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,10 +99,16 @@ export default function Projects() {
                                 </span>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Project 2 - Hustly */}
-                    <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl transition-all duration-300 group flex flex-col h-full transform hover:-translate-y-1">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl transition-all duration-300 group flex flex-col h-full transform hover:-translate-y-1"
+                    >
                         <div className="flex justify-between items-start mb-6">
                             <div className="p-3 bg-white rounded-2xl shadow-sm group-hover:scale-110 transition-transform duration-300">
                                 <LayoutTemplate className="w-8 h-8 text-purple-600" />
@@ -107,10 +138,16 @@ export default function Projects() {
                                 </span>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Project 3 - Portfolio */}
-                    <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl transition-all duration-300 group flex flex-col h-full transform hover:-translate-y-1">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl transition-all duration-300 group flex flex-col h-full transform hover:-translate-y-1"
+                    >
                          <div className="flex justify-between items-start mb-6">
                             <div className="p-3 bg-white rounded-2xl shadow-sm group-hover:scale-110 transition-transform duration-300">
                                 <Globe className="w-8 h-8 text-indigo-500" />
@@ -140,7 +177,7 @@ export default function Projects() {
                                 </span>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
 
                 </div>
 

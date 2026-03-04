@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
+import { motion } from 'motion/react';
 
 export default function Hero_02() {
   const { t } = useTranslation('hero_02');
@@ -11,7 +12,12 @@ export default function Hero_02() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           
           {/* Left Column: Heading and intro */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 md:mb-6 leading-tight">
               {t('headline')}
             </h2>
@@ -35,10 +41,16 @@ export default function Hero_02() {
                     </div>
                 </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Features list */}
-          <div className="space-y-6 md:space-y-8 pl-0 lg:pl-12 border-l-0 lg:border-l border-slate-200 mt-4 lg:mt-0">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="space-y-6 md:space-y-8 pl-0 lg:pl-12 border-l-0 lg:border-l border-slate-200 mt-4 lg:mt-0"
+          >
             
             <div className="group">
               <div className="relative">
@@ -73,7 +85,7 @@ export default function Hero_02() {
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
       </div>

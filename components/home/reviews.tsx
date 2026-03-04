@@ -1,10 +1,9 @@
 'use client';
 
 import { Star, Quote } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export default function Reviews() {
-  // const { t } = useTranslation();
-
   const reviews = [
     {
       name: "Aleksandar Dimov",
@@ -24,18 +23,31 @@ export default function Reviews() {
     <section className="bg-white py-16 md:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="text-center mb-16">
+        <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.5 }}
+            className="text-center mb-16"
+        >
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
             What Clients Say
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Feedback from people I&apos;ve had the pleasure of working with.
             </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
            {reviews.map((item, index) => (
-             <div key={index} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all duration-300 group relative">
+             <motion.div 
+                key={index} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all duration-300 group relative"
+             >
                 <Quote className="absolute top-8 right-8 text-indigo-100 w-12 h-12 rotate-180 group-hover:text-indigo-200 transition-colors" />
                 
                 <div className="flex gap-1 mb-6">
@@ -57,7 +69,7 @@ export default function Reviews() {
                     <p className="text-sm text-slate-500">{item.role}</p>
                   </div>
                 </div>
-             </div>
+             </motion.div>
            ))}
         </div>
 
