@@ -9,7 +9,7 @@
     "dev": "i18nexus pull -k 80jqjB5juxmPzP0MUTCrBg && next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

@@ -6,6 +6,7 @@ import Skills from "@/components/home/skills";
 import Projects from "@/components/home/projects";
 import Hero_02 from "@/components/home/hero_02";
 import Reviews from "@/components/home/reviews";
+import Contact from "@/components/home/contact";
 
 const i18nNamespaces = ['default', 'skills', 'projects', 'hero_02', 'reviews'];
 
@@ -23,6 +24,7 @@ export default async function Home({params}: { params: Promise<{ locale: string 
           <Projects/>
           <Hero_02/>
           <Reviews/>
+          <Contact/>
       </main>
     </TranslationsProvider>
   );

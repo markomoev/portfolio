@@ -7,7 +7,7 @@ export default function Hero_02() {
   const { t } = useTranslation('hero_02');
 
   return (
-    <section className="relative w-full py-12 md:py-20 bg-slate-50 overflow-hidden">
+    <section id="about" className="relative w-full py-12 md:py-20 bg-slate-50 overflow-hidden scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           

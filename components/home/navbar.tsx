@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { cn } from "@/lib/utils";
 import { useAudio } from "@/hooks/use-audio";
@@ -38,6 +38,35 @@ export default function Navbar() {
     { id: "about", label: t('navbar-2') },
     { id: "contact", label: t('navbar-3') },
   ]; 
+
+  useEffect(() => {
+    const ids = links.map((l) => l.id);
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
+
+        const id = visible?.target?.id;
+        if (id) setActive(id);
+      },
+      {
+        root: null,
+        threshold: [0.2, 0.35, 0.5],
+        rootMargin: "-20% 0px -65% 0px",
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentLocale]);
   
   // button for translation
   const handleTranslation = (newLocale: string) => {
@@ -134,7 +163,7 @@ export default function Navbar() {
               }}
               onMouseEnter={() => playSound()}
               className={cn(
-                "relative px-4 py-2 text-sm font-medium capitalize rounded-full transition-colors",
+                "relative px-4 py-2 text-sm font-medium capitalize rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white",
                 active === link.id ? "text-slate-900 bg-slate-100" : "text-slate-600 hover:text-slate-900 hover:bg-slate-50" 
               )}
             >   
@@ -146,7 +175,7 @@ export default function Navbar() {
         {/* Mobile Hamburger Button */}
         <button 
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden p-2 rounded-full hover:bg-slate-100 transition-colors"
+          className="md:hidden p-2 rounded-full hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
         >
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -199,7 +228,7 @@ export default function Navbar() {
                 </div>
                 <button 
                   onClick={() => setMenuOpen(false)}
-                  className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-900 transition-colors"
+                  className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                 >
                     <X size={24} />
                 </button>
@@ -225,7 +254,7 @@ export default function Navbar() {
                   }
                 }}
                 className={cn(
-                  "text-4xl sm:text-5xl font-black tracking-tight hover:text-indigo-600 transition-colors text-left w-full",
+                  "text-4xl sm:text-5xl font-black tracking-tight hover:text-indigo-600 transition-colors text-left w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-4 focus-visible:ring-offset-white rounded-xl",
                   active === link.id ? "text-indigo-600" : "text-slate-900"
                 )}
               >

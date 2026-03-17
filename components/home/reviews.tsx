@@ -2,22 +2,19 @@
 
 import { Star, Quote } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 export default function Reviews() {
-  const reviews = [
-    {
-      name: "Aleksandar Dimov",
-      role: "CEO, TechStart BG",
-      review: "Marko is an exceptional developer. He transformed our outdated platform into a modern, high-performance web application. His attention to detail and ability to solve complex frontend challenges is truly impressive.",
-      stars: 5
-    },
-    {
-      name: "Elena Petrova",
-      role: "Product Manager, E-Shop Solutions",
-      review: "Working with Marko was a seamless experience. He not only delivered the project ahead of schedule but also suggested UI improvements that significantly boosted our user engagement. Highly recommended!",
-      stars: 5
-    }
-  ];
+  const { t } = useTranslation('reviews');
+  const rawReviews = t('reviews', { returnObjects: true, defaultValue: [] }) as unknown;
+  const reviews = Array.isArray(rawReviews)
+    ? (rawReviews as Array<{
+        name: string;
+        role: string;
+        review: string;
+        stars: number;
+      }>)
+    : [];
 
   return (
     <section className="bg-white py-16 md:py-24 relative overflow-hidden">
@@ -31,10 +28,12 @@ export default function Reviews() {
             className="text-center mb-16"
         >
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
-            What Clients Say
+            {t('headline', { defaultValue: 'What Clients Say' })}
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Feedback from people I&apos;ve had the pleasure of working with.
+            {t('subheadline', {
+              defaultValue: "Feedback from people I’ve had the pleasure of working with.",
+            })}
             </p>
         </motion.div>
 

@@ -6,9 +6,20 @@ import { motion } from "motion/react";
 
 export default function Hero() {
   const { t } = useTranslation();
+  const headline01 = t("headline_01");
+  const headline01Words = String(headline01).trim().split(/\s+/).filter(Boolean);
+  const headline01Emphasis =
+    t("headline_01_emphasis", { defaultValue: "" }) ||
+    headline01Words.slice(0, 2).join(" ");
+  const headline01Rest =
+    t("headline_01_rest", { defaultValue: "" }) ||
+    headline01Words.slice(2).join(" ");
 
   return (
-    <div className="relative min-h-screen w-full flex flex-col justify-start md:justify-center px-4 sm:px-10 lg:px-20 bg-transparent overflow-hidden pointer-events-none pt-35 md:pt-32">
+    <section
+      id="home"
+      className="relative min-h-screen w-full flex flex-col justify-start md:justify-center px-4 sm:px-10 lg:px-20 bg-transparent overflow-hidden pointer-events-none pt-35 md:pt-32"
+    >
 
       {/* Top Decoration / Branding (Minimal) */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
@@ -37,7 +48,8 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
               className="block text-[10vw] md:text-[8.5vw] text-slate-900"
             >
-              <span className="text-indigo-600">{t('headline_01').split(' ').slice(0, 2).join(' ')}</span> {t('headline_01').split(' ').slice(2).join(' ').replace(/ ([^ ]+)$/, "\u00A0$1")}
+              <span className="text-indigo-600">{headline01Emphasis}</span>{" "}
+              {headline01Rest}
             </motion.span>
             <motion.span 
               initial={{ opacity: 0, y: 40 }}
@@ -79,17 +91,24 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
               className="flex flex-col sm:flex-row md:flex-col gap-4 min-w-max pointer-events-auto items-center md:items-end mt-4 md:mt-0"
             >
-              <button className="hover:text-indigo-600 group flex items-center gap-2 text-lg md:text-xl font-bold text-slate-900 transition-all hover:translate-x-2 cursor-pointer">
-                {t('cta_primary')} <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:rotate-45" />
-              </button>
-              <button className="group flex items-center gap-2 text-base md:text-lg font-medium text-slate-500 transition-all hover:text-slate-900 hover:translate-x-2 cursor-pointer">
-                {t('cta_secondary')} <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
-              </button>
+              <a
+                href="#contact"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-base md:text-lg font-bold text-white shadow-sm transition-all hover:bg-indigo-600 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              >
+                {t("cta_primary")}{" "}
+                <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:rotate-45" />
+              </a>
+              <a
+                href="#projects"
+                className="group inline-flex items-center gap-2 text-base md:text-lg font-semibold text-slate-600 transition-all hover:text-slate-900 hover:translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-full px-2 py-2"
+              >
+                {t("cta_secondary")} <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
+              </a>
             </motion.div>
           </motion.div>
         </div>
 
       </div>
-    </div>
+    </section>
   );
 }

@@ -9,7 +9,7 @@ export default function Projects() {
     const { t } = useTranslation('projects');
 
     return (
-        <section className="bg-white py-16 md:py-24 w-full rounded-t-[2rem] md:rounded-t-[3rem] -mt-8 relative z-20">
+        <section id="projects" className="bg-white py-16 md:py-24 w-full rounded-t-[2rem] md:rounded-t-[3rem] -mt-8 relative z-20 scroll-mt-28">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
                 
                 {/* 1. Brands that trusted me */}
