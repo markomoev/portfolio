@@ -1,0 +1,23 @@
+{
+  "headline": "A clear, fast process",
+  "subheadline": "You’ll always know what’s happening, what you’ll get, and when we launch.",
+  "steps": [
+    {
+      "title": "Discovery",
+      "text": "Goals, audience, content, and examples. We align on scope and timeline."
+    },
+    {
+      "title": "Design",
+      "text": "Layout, typography, and UI system that matches your brand and offer."
+    },
+    {
+      "title": "Build",
+      "text": "Clean implementation, responsive polish, and performance-first details."
+    },
+    {
+      "title": "Launch",
+      "text": "Final QA, deployment, and a smooth handoff so you can run with it."
+    }
+  ]
+}
+

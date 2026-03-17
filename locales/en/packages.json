@@ -1,0 +1,39 @@
+{
+  "headline": "Packages (Fiverr-friendly)",
+  "subheadline": "Pick a clear scope. You’ll get a modern design, clean build, and a smooth launch — without surprises.",
+  "tiers": [
+    {
+      "name": "Starter",
+      "price": "from $199",
+      "for": "One-page landing",
+      "points": [
+        "Single page (hero → CTA)",
+        "Mobile-first design",
+        "Basic SEO + performance"
+      ]
+    },
+    {
+      "name": "Business",
+      "price": "from $499",
+      "for": "Multi-page site",
+      "points": [
+        "Up to 5 sections/pages",
+        "Contact section + CTA flow",
+        "On-brand UI system"
+      ],
+      "popular": true
+    },
+    {
+      "name": "Premium",
+      "price": "from $999",
+      "for": "High-end + custom",
+      "points": [
+        "Custom interactions",
+        "Internationalization (optional)",
+        "Analytics + handoff"
+      ]
+    }
+  ],
+  "cta": "Request a quote"
+}
+

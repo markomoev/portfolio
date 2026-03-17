@@ -7,8 +7,11 @@ import Projects from "@/components/home/projects";
 import Hero_02 from "@/components/home/hero_02";
 import Reviews from "@/components/home/reviews";
 import Contact from "@/components/home/contact";
+import Services from "@/components/home/services";
+import Process from "@/components/home/process";
+import FAQ from "@/components/home/faq";
 
-const i18nNamespaces = ['default', 'skills', 'projects', 'hero_02', 'reviews'];
+const i18nNamespaces = ['default', 'skills', 'projects', 'hero_02', 'reviews', 'services', 'process', 'faq'];
 
 export default async function Home({params}: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -20,10 +23,13 @@ export default async function Home({params}: { params: Promise<{ locale: string 
       <main>
           <Navbar/>
           <Hero_01/>
+          <Services/>
           <Skills/>
           <Projects/>
+          <Process/>
           <Hero_02/>
           <Reviews/>
+          <FAQ/>
           <Contact/>
       </main>
     </TranslationsProvider>

@@ -18,7 +18,7 @@ export default function Hero_02() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 md:mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 md:mb-6 leading-tight tracking-tight">
               {t('headline')}
             </h2>
             <p className="text-base md:text-lg text-slate-600 mb-6 md:mb-8 leading-relaxed">
@@ -80,7 +80,7 @@ export default function Hero_02() {
                   {t('bullet-03-headline')}
                 </h3>
                 <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-                  {t('bullet-04-subheadline')}
+                  {t('bullet-03-subheadline')}
                 </p>
               </div>
             </div>

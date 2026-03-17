@@ -96,7 +96,7 @@ export default function Navbar() {
 
   // Language Switcher Component
   const LanguageSwitcher = () => (
-    <div className="flex bg-white rounded-full p-1 border border-slate-200 hover:border-slate-300 transition-colors">
+    <div className="flex rounded-full p-1 border border-slate-200 bg-white hover:border-slate-300 transition-colors">
       <motion.button
         onClick={() => {
           const nextLocale = currentLocale === 'en' ? 'bg' : 'en';
@@ -197,8 +197,7 @@ export default function Navbar() {
           animate={{ x: 0 }}
           exit={{ x: "100%" }}
           transition={{ type: "spring", damping: 30, stiffness: 300 }}
-          style={{ backgroundColor: "white" }}
-          className="fixed inset-0 z-9999 md:hidden flex flex-col p-6 overflow-y-auto h-dvh w-screen pb-[env(safe-area-inset-bottom)]"
+          className="fixed inset-0 z-9999 md:hidden flex flex-col p-6 overflow-y-auto h-dvh w-screen pb-[env(safe-area-inset-bottom)] bg-white"
         >
             <div className="flex justify-between items-start w-full mb-8">
                 <div className="flex items-center gap-3">

@@ -14,6 +14,10 @@ const loadResource = (language: string, namespace: string) => {
         case 'projects': loader = import('@/locales/en/projects.json'); break;
         case 'reviews': loader = import('@/locales/en/reviews.json'); break;
         case 'skills': loader = import('@/locales/en/skills.json'); break;
+        case 'services': loader = import('@/locales/en/services.json'); break;
+        case 'packages': loader = import('@/locales/en/packages.json'); break;
+        case 'process': loader = import('@/locales/en/process.json'); break;
+        case 'faq': loader = import('@/locales/en/faq.json'); break;
         default: loader = import(`@/locales/en/${namespace}.json`); break;
       }
       break;
@@ -24,6 +28,10 @@ const loadResource = (language: string, namespace: string) => {
         case 'projects': loader = import('@/locales/bg/projects.json'); break;
         case 'reviews': loader = import('@/locales/bg/reviews.json'); break;
         case 'skills': loader = import('@/locales/bg/skills.json'); break;
+        case 'services': loader = import('@/locales/bg/services.json'); break;
+        case 'packages': loader = import('@/locales/bg/packages.json'); break;
+        case 'process': loader = import('@/locales/bg/process.json'); break;
+        case 'faq': loader = import('@/locales/bg/faq.json'); break;
         default: loader = import(`@/locales/bg/${namespace}.json`); break;
       }
       break;

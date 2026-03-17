@@ -1,0 +1,22 @@
+{
+  "headline": "FAQ",
+  "items": [
+    {
+      "q": "How fast can we launch?",
+      "a": "Most landing pages take 3–7 days depending on content readiness. Larger sites take 1–3 weeks."
+    },
+    {
+      "q": "Do you handle hosting and domains?",
+      "a": "I can deploy to Vercel and guide you through domain setup, or work with your existing hosting."
+    },
+    {
+      "q": "Can you redesign my existing website?",
+      "a": "Yes. I can keep your content and rebuild the UI, improve performance, and modernize the look."
+    },
+    {
+      "q": "What do you need from me?",
+      "a": "A short brief, your offer/services, brand assets (optional), and any examples you like."
+    }
+  ]
+}
+

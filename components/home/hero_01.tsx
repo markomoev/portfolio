@@ -3,6 +3,9 @@ import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
+import { BackgroundGrid } from "@/components/ui/background-grid";
+import { GlowButton } from "@/components/ui/glow-button";
+import { BadgePills } from "@/components/ui/badge-pills";
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -20,6 +23,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen w-full flex flex-col justify-start md:justify-center px-4 sm:px-10 lg:px-20 bg-transparent overflow-hidden pointer-events-none pt-35 md:pt-32"
     >
+      <BackgroundGrid intensity="medium" />
 
       {/* Top Decoration / Branding (Minimal) */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
@@ -38,15 +42,15 @@ export default function Hero() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-xs md:text-sm lg:text-base font-medium tracking-wide text-slate-500 uppercase text-center md:text-left"
           >
-             Marko Moev — Web & Frontend Developer
+             Marko Moev — Websites for local businesses, creators & startups
           </motion.p>
           
-          <h1 className="w-full font-black tracking-tighter leading-[0.9] md:leading-[0.8] text-slate-900 mb-4 md:mb-8 flex flex-col uppercase text-center md:text-left">
+          <h1 className="w-full font-black tracking-tighter leading-[0.9] md:leading-[0.8] mb-4 md:mb-8 flex flex-col uppercase text-center md:text-left">
             <motion.span 
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-              className="block text-[10vw] md:text-[8.5vw] text-slate-900"
+              className="block text-[10vw] md:text-[8.5vw]"
             >
               <span className="text-indigo-600">{headline01Emphasis}</span>{" "}
               {headline01Rest}
@@ -55,7 +59,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-              className="block text-[10vw] md:text-[8.5vw] text-slate-900"
+              className="block text-[10vw] md:text-[8.5vw]"
             >
               {t('headline_02')}
             </motion.span>
@@ -77,9 +81,15 @@ export default function Hero() {
           >
             
             <div className="flex flex-col md:flex-row items-center md:items-start gap-4 max-w-3xl text-center md:text-left">
-               <p className="text-lg md:text-xl lg:text-2xl text-slate-600 leading-relaxed font-light max-w-2xl">
+               <div className="max-w-2xl">
+                <p className="text-lg md:text-xl lg:text-2xl text-slate-600 leading-relaxed font-light">
                 {t('subheadline')}
-              </p>
+                </p>
+                <BadgePills
+                  className="mt-6 justify-center md:justify-start pointer-events-auto"
+                  items={["Fast", "SEO-ready", "Mobile-first", "Accessible", "Modern UI"]}
+                />
+               </div>
               <div className="hidden md:flex flex-col items-center gap-2 text-slate-400 min-w-max mt-8 pb-4">
                  <Image src="/icons/arrow-down.svg" width={60} height={100} alt="Scroll down arrow" className="text-indigo-600/80" />
               </div>
@@ -91,12 +101,11 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
               className="flex flex-col sm:flex-row md:flex-col gap-4 min-w-max pointer-events-auto items-center md:items-end mt-4 md:mt-0"
             >
-              <a
-                href="#contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-base md:text-lg font-bold text-white shadow-sm transition-all hover:bg-indigo-600 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-              >
-                {t("cta_primary")}{" "}
-                <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:rotate-45" />
+              <a href="#contact">
+                <GlowButton>
+                  {t("cta_primary")}{" "}
+                  <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:rotate-45" />
+                </GlowButton>
               </a>
               <a
                 href="#projects"
