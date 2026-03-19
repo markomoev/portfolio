@@ -79,7 +79,7 @@ export default function Projects() {
                     {t('headline-2')}
                 </motion.h2>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full">
+                <div className="w-[calc(100%+2rem)] -mx-4 px-4 sm:w-full sm:mx-0 sm:px-0 flex gap-4 sm:gap-6 overflow-x-auto pb-8 pt-2 snap-x snap-mandatory touch-pan-x sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-x-visible sm:pb-0 sm:pt-0 md:gap-8 after:content-[''] after:w-px after:shrink-0 sm:after:hidden">
 
                     {/* Project 1 - Coinwise */}
                     <motion.div 
@@ -87,7 +87,7 @@ export default function Projects() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                         viewport={{ once: true, amount: 0.2 }}
-                        className="h-full"
+                        className="h-full w-[85vw] shrink-0 snap-start sm:w-auto sm:shrink-1"
                     >
                         <GlassCard className="p-8 group flex flex-col h-full">
                           <div className="flex justify-between items-start mb-6 gap-4">
@@ -127,7 +127,7 @@ export default function Projects() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                         viewport={{ once: true, amount: 0.2 }}
-                        className="h-full"
+                        className="h-full w-[85vw] shrink-0 snap-start sm:w-auto sm:shrink-1"
                     >
                         <GlassCard className="p-8 group flex flex-col h-full">
                           <div className="flex justify-between items-start mb-6 gap-4">
@@ -161,7 +161,7 @@ export default function Projects() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
                         viewport={{ once: true, amount: 0.2 }}
-                        className="h-full"
+                        className="h-full w-[85vw] shrink-0 snap-start sm:w-auto sm:shrink-1"
                     >
                         <GlassCard className="p-8 group flex flex-col h-full">
                           <div className="flex justify-between items-start mb-6 gap-4">

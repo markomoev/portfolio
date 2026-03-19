@@ -109,13 +109,13 @@ export default function Skills(){
                 </div>
 
                 {/* Portrait - Right Side */}
-                <div className="w-full lg:w-1/2 min-h-100 md:min-h-[32rem] lg:min-h-screen relative mt-12 lg:mt-0 flex items-center justify-center p-6 md:p-8 lg:p-24">
-                    <div className="relative w-full h-full min-h-100 md:min-h-[32rem] rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
+                <div className="w-full lg:w-1/2 relative mt-12 lg:mt-0 flex items-center justify-center p-6 md:p-8 lg:p-24">
+                  <div className="relative w-full aspect-[3/4] md:aspect-auto md:h-full md:min-h-[32rem] rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
                         <Image
                             src="/photos/portrait.JPG"
                             alt="Marko Moev"
                             fill
-                            className="object-cover object-[center_20%]"
+                            className="object-cover object-[center_10%] md:object-[center_20%]"
                             sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 to-transparent" />

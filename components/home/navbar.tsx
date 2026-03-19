@@ -1,6 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
-import { motion, useScroll, useMotionValueEvent } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useReducedMotion,
+} from "motion/react";
 import { cn } from "@/lib/utils";
 import { useAudio } from "@/hooks/use-audio";
 import { useTranslation } from "react-i18next";
@@ -8,7 +14,6 @@ import { useRouter, usePathname } from "next/navigation";
 import i18nConfig from "../../i18nConfig";
 
 import { Menu, X } from "lucide-react";
-import { AnimatePresence } from "motion/react";
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
@@ -16,6 +21,10 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const playSound = useAudio("/sounds/click-navbar.mp3");
+  const reducedMotion = useReducedMotion();
+
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const firstMenuItemRef = useRef<HTMLButtonElement | null>(null);
 
   const router = useRouter()
   const currentPathname = usePathname();
@@ -67,6 +76,46 @@ export default function Navbar() {
     return () => observer.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentLocale]);
+
+  // Mobile menu UX: lock scroll + add Escape + manage focus.
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const previousPaddingRight = document.body.style.paddingRight;
+
+    const scrollBarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = "hidden";
+    if (scrollBarWidth > 0) {
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
+    }
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+
+    // Focus the first menu item for quick keyboard/touch-to-focus navigation.
+    const raf = window.requestAnimationFrame(() => {
+      firstMenuItemRef.current?.focus();
+    });
+
+    return () => {
+      window.cancelAnimationFrame(raf);
+      document.body.style.overflow = previousOverflow;
+      document.body.style.paddingRight = previousPaddingRight;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (menuOpen) return;
+    // Return focus back to the hamburger button when closing.
+    menuButtonRef.current?.focus();
+  }, [menuOpen]);
   
   // button for translation
   const handleTranslation = (newLocale: string) => {
@@ -121,7 +170,7 @@ export default function Navbar() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-4 md:top-6 left-0 right-0 flex justify-between items-center z-50 pointer-events-auto px-4 md:px-6 max-w-360 mx-auto"
+      className="fixed top-4 md:top-6 left-0 right-0 flex justify-between items-center z-50 pointer-events-auto px-4 md:px-6 max-w-7xl mx-auto"
     >
       
       {/* Left: Logo + Desktop Navigation */}
@@ -174,7 +223,11 @@ export default function Navbar() {
 
         {/* Mobile Hamburger Button */}
         <button 
+          ref={menuButtonRef}
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-nav"
           className="md:hidden p-2 rounded-full hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
         >
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -193,44 +246,55 @@ export default function Navbar() {
     <AnimatePresence mode="wait">
       {menuOpen && (
         <motion.div
-          initial={{ x: "100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "100%" }}
-          transition={{ type: "spring", damping: 30, stiffness: 300 }}
-          className="fixed inset-0 z-9999 md:hidden flex flex-col p-6 overflow-y-auto h-dvh w-screen pb-[env(safe-area-inset-bottom)] bg-white"
+          initial={reducedMotion ? { x: 0 } : { x: "100%" }}
+          animate={reducedMotion ? { x: 0 } : { x: 0 }}
+          exit={reducedMotion ? { x: 0 } : { x: "100%" }}
+          transition={
+            reducedMotion ? undefined : { type: "spring", damping: 30, stiffness: 300 }
+          }
+          onClick={() => setMenuOpen(false)}
+          className="fixed inset-0 z-[9999] md:hidden flex flex-col p-6 overflow-y-auto h-dvh w-screen pb-[env(safe-area-inset-bottom)] bg-white"
+          id="mobile-nav"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu"
         >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="flex flex-col min-h-full"
+          >
             <div className="flex justify-between items-start w-full mb-8">
-                <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3">
+                <button 
+                  onClick={() => {
+                    const nextLocale = currentLocale === 'en' ? 'bg' : 'en';
+                    handleTranslation(nextLocale);
+                    playSound();
+                  }}
+                  className="p-2 bg-indigo-50 rounded-full hover:bg-indigo-100 transition-colors"
+                >
+                  <span className="font-bold text-indigo-600 text-lg">{currentLocale === 'en' ? 'EN' : 'BG'}</span>
+                </button>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Language</span>
                   <button 
                     onClick={() => {
-                        const nextLocale = currentLocale === 'en' ? 'bg' : 'en';
-                        handleTranslation(nextLocale);
-                        playSound();
+                      const nextLocale = currentLocale === 'en' ? 'bg' : 'en';
+                      handleTranslation(nextLocale);
+                      playSound();
                     }}
-                    className="p-2 bg-indigo-50 rounded-full hover:bg-indigo-100 transition-colors"
+                    className="text-sm font-bold text-slate-900 underline decoration-2 decoration-indigo-200 hover:text-indigo-600 hover:decoration-indigo-600 transition-all text-left"
                   >
-                     <span className="font-bold text-indigo-600 text-lg">{currentLocale === 'en' ? 'EN' : 'BG'}</span>
+                    {currentLocale === 'en' ? 'Switch to Bulgarian' : 'Switch to English'}
                   </button>
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Language</span>
-                    <button 
-                      onClick={() => {
-                        const nextLocale = currentLocale === 'en' ? 'bg' : 'en';
-                        handleTranslation(nextLocale);
-                        playSound();
-                      }}
-                      className="text-sm font-bold text-slate-900 underline decoration-2 decoration-indigo-200 hover:text-indigo-600 hover:decoration-indigo-600 transition-all text-left"
-                    >
-                      {currentLocale === 'en' ? 'Switch to Bulgarian' : 'Switch to English'}
-                    </button>
-                  </div>
                 </div>
-                <button 
-                  onClick={() => setMenuOpen(false)}
-                  className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-                >
-                    <X size={24} />
-                </button>
+              </div>
+              <button 
+                onClick={() => setMenuOpen(false)}
+                className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              >
+                <X size={24} />
+              </button>
             </div>
             
           <div className="flex flex-col gap-6 w-full grow justify-center">
@@ -240,6 +304,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 + index * 0.1 }}
+                ref={index === 0 ? firstMenuItemRef : undefined}
                 onClick={() => {
                   setActive(link.id);
                   setMenuOpen(false);
@@ -269,6 +334,7 @@ export default function Navbar() {
                     contact@markomoev.com
                  </a>
              </div>
+          </div>
           </div>
         </motion.div>
       )}

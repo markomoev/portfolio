@@ -26,7 +26,7 @@ export default function Hero_02() {
               {t('subheadline')}
             </p>
             
-            <div className="relative h-64 md:h-96 w-full rounded-2xl overflow-hidden bg-slate-200 border border-slate-200/50 p-4 md:p-6">
+            <div className="relative aspect-[4/3] sm:aspect-video md:aspect-auto md:h-96 w-full rounded-2xl overflow-hidden bg-slate-200 border border-slate-200/50 p-4 md:p-6">
                 <Image
                   src="/photos/wide.JPG"
                   alt="Why businesses trust me"
@@ -35,17 +35,17 @@ export default function Hero_02() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent" />
-                <div className="relative z-10 flex flex-col justify-start h-full">
-                    <div className="bg-slate-900/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-slate-800 w-max transform transition-transform hover:scale-105">
-                        <div className="flex items-center gap-4">
-                            <div className="text-white font-bold text-3xl">
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent md:bg-gradient-to-b" />
+                <div className="relative z-10 flex flex-col justify-end md:justify-start h-full">
+                    <div className="bg-slate-900/90 backdrop-blur-md p-2 md:p-4 rounded-lg md:rounded-xl shadow-lg border border-slate-800 w-max transform transition-transform hover:scale-105">
+                        <div className="flex items-center gap-2 md:gap-4">
+                            <div className="text-white font-bold text-lg md:text-3xl">
                                 100%
                             </div>
-                            <div className="h-8 w-px bg-slate-700"></div>
+                            <div className="h-5 md:h-8 w-px bg-slate-700"></div>
                             <div>
-                                <p className="text-sm font-semibold text-slate-100">{t('badge-headline')}</p>
-                                <p className="text-xs text-slate-400">{t('badge-subheadline')}</p>
+                                <p className="text-xs md:text-sm font-semibold text-slate-100">{t('badge-headline')}</p>
+                                <p className="text-[10px] md:text-xs text-slate-400">{t('badge-subheadline')}</p>
                             </div>
                         </div>
                     </div>

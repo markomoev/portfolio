@@ -21,7 +21,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full flex flex-col justify-start md:justify-center px-4 sm:px-10 lg:px-20 bg-transparent overflow-hidden pointer-events-none pt-35 md:pt-32"
+      className="relative min-h-screen w-full flex flex-col justify-start md:justify-center px-4 sm:px-10 lg:px-20 bg-transparent overflow-hidden pointer-events-none pt-24 md:pt-32"
     >
       <BackgroundGrid intensity="medium" />
 
