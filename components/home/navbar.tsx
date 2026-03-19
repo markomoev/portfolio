@@ -330,8 +330,8 @@ export default function Navbar() {
           <div className="w-full border-t border-slate-100 pt-6 mt-auto">
              <div className="flex flex-col gap-1">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Get in touch</span>
-                 <a href="mailto:contact@markomoev.com" className="text-xl font-bold text-slate-900 hover:text-indigo-600 transition-colors break-all">
-                    contact@markomoev.com
+                 <a href="mailto:marko.moev.business@gmail.com" className="text-sm font-bold text-slate-900 hover:text-indigo-600 transition-colors whitespace-nowrap">
+                    marko.moev.business@gmail.com
                  </a>
              </div>
           </div>
