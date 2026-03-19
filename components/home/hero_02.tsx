@@ -36,7 +36,7 @@ export default function Hero_02() {
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent md:bg-gradient-to-b" />
-                <div className="relative z-10 flex flex-col justify-end md:justify-start h-full">
+                <div className="relative z-10 flex flex-col justify-end md:justify-start h-full pb-4 md:pb-0">
                     <div className="bg-slate-900/90 backdrop-blur-md p-2 md:p-4 rounded-lg md:rounded-xl shadow-lg border border-slate-800 w-max transform transition-transform hover:scale-105">
                         <div className="flex items-center gap-2 md:gap-4">
                             <div className="text-white font-bold text-lg md:text-3xl">
