@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { ArrowUpRight, Github, Globe, LayoutTemplate, Stethoscope } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowUpRight, Github } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'motion/react';
 import { GlassCard } from '@/components/ui/glass-card';
@@ -9,9 +9,16 @@ import { GlassCard } from '@/components/ui/glass-card';
 const iconBg = "bg-indigo-50 text-indigo-600";
 const githubBtn = "p-2 rounded-full border border-slate-200 bg-white text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-all";
 const liveBtn = "p-2 bg-slate-900 rounded-full text-white hover:bg-indigo-600 transition-all";
-const tagCls = "text-xs font-medium text-slate-500 bg-white px-2.5 py-1 rounded-full border border-slate-200";
 const snapshotLabel = "text-xs font-bold uppercase tracking-widest text-slate-400";
 const snapshotList = "mt-3 space-y-2 text-sm text-slate-600";
+
+function TechTag({ name }: { name: string }) {
+  return (
+    <span className="inline-flex items-center text-xs font-medium text-slate-500 bg-white px-2.5 py-1 rounded-full border border-slate-200">
+      {name}
+    </span>
+  );
+}
 
 export default function Projects() {
     const { t } = useTranslation('projects');
@@ -39,21 +46,22 @@ export default function Projects() {
                     className="flex justify-center mb-16 md:mb-24 w-full"
                 >
                     <a href="https://drstoykov.net/" target="_blank" rel="noopener noreferrer" className="w-full max-w-xl">
-                      <GlassCard className="p-8 md:p-10 group">
-                        <div className="flex items-start gap-5">
-                          <div className={`shrink-0 rounded-2xl p-4 transition-transform duration-300 group-hover:scale-110 ${iconBg}`}>
-                            <Stethoscope className="w-7 h-7" />
+                      <GlassCard variant="elevated" className="p-8 md:p-10 group">
+                        <div className="flex flex-col gap-3">
+                          <div className="relative w-full h-[52px]">
+                            <Image
+                              src="/logos/stoykovmed.png"
+                              alt="Stoykovmed logo"
+                              fill
+                              className="object-contain object-left"
+                              sizes="(max-width: 640px) 100vw, 576px"
+                            />
                           </div>
-                          <div className="min-w-0">
-                            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                              <span className="text-2xl font-black tracking-tight text-slate-900">Dr. Stoykov</span>
-                              <span className="text-xs font-bold uppercase tracking-widest text-slate-400">{t('drstoykov-subheading')}</span>
-                            </div>
-                            <p className="mt-3 text-sm md:text-base text-slate-600 leading-relaxed">{t('drstoykov-description')}</p>
-                            <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-600 group-hover:text-indigo-600 transition-colors">
-                              <span>View live</span>
-                              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:rotate-45" />
-                            </div>
+                          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">{t('drstoykov-subheading')}</span>
+                          <p className="text-sm md:text-base text-slate-600 leading-relaxed">{t('drstoykov-description')}</p>
+                          <div className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-slate-600 group-hover:text-indigo-600 transition-colors">
+                            <span>View live</span>
+                            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:rotate-45" />
                           </div>
                         </div>
                       </GlassCard>
@@ -83,10 +91,14 @@ export default function Projects() {
                     >
                         <GlassCard className="p-8 group flex flex-col h-full">
                           <div className="flex justify-between items-start mb-6 gap-4">
-                            <div className={`p-3 rounded-2xl transition-transform duration-300 group-hover:scale-110 ${iconBg}`}>
-                              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                              </svg>
+                            <div className="relative w-14 h-14 rounded-2xl overflow-hidden bg-slate-50 transition-transform duration-300 group-hover:scale-110 shrink-0 -ml-4">
+                              <Image
+                                src="/logos/coinwise.png"
+                                alt="Coinwise logo"
+                                fill
+                                className="object-contain object-left mix-blend-multiply pr-1 py-1"
+                                sizes="56px"
+                              />
                             </div>
                             <div className="flex gap-2">
                               <a href="https://github.com/markomoev/Coinwise" target="_blank" rel="noopener noreferrer" className={githubBtn} title="View Code"><Github className="w-5 h-5" /></a>
@@ -103,7 +115,7 @@ export default function Projects() {
                               <li>Result → clearer decisions (demo)</li>
                             </ul>
                             <div className="flex flex-wrap gap-2 mt-5">
-                              {['Next.js', 'React', 'Tailwind'].map((tag) => (<span key={tag} className={tagCls}>{tag}</span>))}
+                              {['React', 'Supabase'].map((tag) => (<TechTag key={tag} name={tag} />))}
                             </div>
                           </div>
                         </GlassCard>
@@ -119,8 +131,8 @@ export default function Projects() {
                     >
                         <GlassCard className="p-8 group flex flex-col h-full">
                           <div className="flex justify-between items-start mb-6 gap-4">
-                            <div className={`p-3 rounded-2xl transition-transform duration-300 group-hover:scale-110 ${iconBg}`}>
-                              <LayoutTemplate className="w-8 h-8" />
+                            <div className="transition-transform duration-300 group-hover:scale-110 shrink-0">
+                              <span className="text-4xl font-black text-amber-700 leading-none">h</span>
                             </div>
                             <div className="flex gap-2">
                               <a href="https://github.com/markomoev/Hustly" target="_blank" rel="noopener noreferrer" className={githubBtn} title="View Code"><Github className="w-5 h-5" /></a>
@@ -137,7 +149,7 @@ export default function Projects() {
                               <li>Result → faster planning (demo)</li>
                             </ul>
                             <div className="flex flex-wrap gap-2 mt-5">
-                              {['Next.js', 'TypeScript', 'Tailwind'].map((tag) => (<span key={tag} className={tagCls}>{tag}</span>))}
+                              {['React', 'Supabase'].map((tag) => (<TechTag key={tag} name={tag} />))}
                             </div>
                           </div>
                         </GlassCard>
@@ -153,8 +165,16 @@ export default function Projects() {
                     >
                         <GlassCard className="p-8 group flex flex-col h-full">
                           <div className="flex justify-between items-start mb-6 gap-4">
-                            <div className={`p-3 rounded-2xl transition-transform duration-300 group-hover:scale-110 ${iconBg}`}>
-                              <Globe className="w-8 h-8" />
+                            <div className="group/logo flex items-center font-bold text-indigo-600 shrink-0 transition-transform duration-300 group-hover:scale-110">
+                              <div className="flex items-center">
+                                <span>M</span>
+                                <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-700 ease-in-out group-hover/logo:max-w-16 group-hover/logo:opacity-100">arko</span>
+                              </div>
+                              <span className="w-0.5 h-4 bg-slate-300 mx-1 rounded-full opacity-0 group-hover/logo:opacity-100 transition-opacity duration-500"></span>
+                              <div className="flex items-center">
+                                <span className="inline-block transition-transform duration-700 -scale-y-100 group-hover/logo:scale-y-100">M</span>
+                                <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-700 ease-in-out group-hover/logo:max-w-16 group-hover/logo:opacity-100">oev</span>
+                              </div>
                             </div>
                             <div className="flex gap-2">
                               <a href="https://github.com/markomoev/portfolio" target="_blank" rel="noopener noreferrer" className={githubBtn} title="View Code"><Github className="w-5 h-5" /></a>
@@ -171,7 +191,7 @@ export default function Projects() {
                               <li>Result → clear services + CTA</li>
                             </ul>
                             <div className="flex flex-wrap gap-2 mt-5">
-                              {['Next.js', 'React', 'Tailwind'].map((tag) => (<span key={tag} className={tagCls}>{tag}</span>))}
+                              {['Next.js', 'React', 'Tailwind'].map((tag) => (<TechTag key={tag} name={tag} />))}
                             </div>
                           </div>
                         </GlassCard>

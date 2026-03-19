@@ -11,7 +11,7 @@ import Services from "@/components/home/services";
 import Process from "@/components/home/process";
 import FAQ from "@/components/home/faq";
 
-const i18nNamespaces = ['default', 'skills', 'projects', 'hero_02', 'reviews', 'services', 'process', 'faq'];
+const i18nNamespaces = ['default', 'skills', 'projects', 'hero_02', 'reviews', 'services', 'process', 'faq', 'contact'];
 
 export default async function Home({params}: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

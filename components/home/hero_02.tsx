@@ -2,6 +2,7 @@
 
 import { useTranslation } from 'react-i18next';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 
 export default function Hero_02() {
   const { t } = useTranslation('hero_02');
@@ -25,8 +26,17 @@ export default function Hero_02() {
               {t('subheadline')}
             </p>
             
-            <div className="relative h-48 md:h-64 w-full rounded-2xl overflow-hidden bg-slate-200 border border-slate-200/50 p-4 md:p-6">
-                <div className="relative z-10 flex flex-col justify-end h-full">
+            <div className="relative h-64 md:h-96 w-full rounded-2xl overflow-hidden bg-slate-200 border border-slate-200/50 p-4 md:p-6">
+                <Image
+                  src="/photos/wide.JPG"
+                  alt="Why businesses trust me"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent" />
+                <div className="relative z-10 flex flex-col justify-start h-full">
                     <div className="bg-slate-900/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-slate-800 w-max transform transition-transform hover:scale-105">
                         <div className="flex items-center gap-4">
                             <div className="text-white font-bold text-3xl">

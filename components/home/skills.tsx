@@ -2,6 +2,7 @@
 import { Brain, Code2, Users, Rocket } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 
 export default function Skills(){
     const { t } = useTranslation('skills');
@@ -107,19 +108,17 @@ export default function Skills(){
                     </div>
                 </div>
 
-                {/* Image Placeholder - Right Side */}
-                <div className="w-full lg:w-1/2 min-h-75 md:min-h-100 lg:min-h-screen relative mt-12 lg:mt-0 flex items-center justify-center p-6 md:p-8 lg:p-24">
-                     {/* The Image Container */}
-                    <div className="relative w-full h-full min-h-75 md:min-h-100 bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
-                        {/* Decorative Elements for Placeholder */}
-                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-indigo-900/20 via-slate-950 to-slate-950"></div>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="text-slate-700 font-mono text-sm p-4 border border-slate-800 rounded-lg bg-slate-950/50">
-                                &lt;ImagePlaceholder /&gt;
-                                <br/>
-                                <span className="text-xs text-slate-600">{`// Add your professional photo here`}</span>
-                            </div>
-                        </div>
+                {/* Portrait - Right Side */}
+                <div className="w-full lg:w-1/2 min-h-100 md:min-h-[32rem] lg:min-h-screen relative mt-12 lg:mt-0 flex items-center justify-center p-6 md:p-8 lg:p-24">
+                    <div className="relative w-full h-full min-h-100 md:min-h-[32rem] rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
+                        <Image
+                            src="/photos/portrait.JPG"
+                            alt="Marko Moev"
+                            fill
+                            className="object-cover object-[center_20%]"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 to-transparent" />
                     </div>
                 </div>
             </div>

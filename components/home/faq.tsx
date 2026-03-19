@@ -44,8 +44,8 @@ export default function FAQ() {
                       {item.q}
                     </div>
                   </div>
-                  <div className="mt-2 h-7 w-7 shrink-0 rounded-full border border-slate-200 bg-slate-50 grid place-items-center">
-                    <span className="text-slate-500 font-black text-sm">
+                  <div className="mt-2 h-7 w-7 shrink-0 rounded-full border border-slate-200 bg-slate-50 flex items-center justify-center">
+                    <span className="text-slate-500 font-black text-sm leading-none select-none">
                       {isOpen ? "–" : "+"}
                     </span>
                   </div>
