@@ -178,7 +178,7 @@ export default function Projects() {
                             </div>
                             <div className="flex gap-2">
                               <a href="https://github.com/markomoev/portfolio" target="_blank" rel="noopener noreferrer" className={githubBtn} title="View Code"><Github className="w-5 h-5" /></a>
-                              <a href="https://portfolio-opal-phi-od46ng81yy.vercel.app" target="_blank" rel="noopener noreferrer" className={liveBtn} title="Live Demo"><ArrowUpRight className="w-5 h-5" /></a>
+                              <a href="https://portfolio-markomoev.vercel.app/en" target="_blank" rel="noopener noreferrer" className={liveBtn} title="Live Demo"><ArrowUpRight className="w-5 h-5" /></a>
                             </div>
                           </div>
                           <h3 className="text-xl font-bold mb-3 tracking-tight text-slate-900">Marko Moev | Portfolio</h3>
