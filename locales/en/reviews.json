@@ -3,15 +3,9 @@
   "subheadline": "Feedback from people I’ve had the pleasure of working with.",
   "reviews": [
     {
-      "name": "Aleksandar Dimov",
-      "role": "CEO, TechStart BG",
-      "review": "Marko is an exceptional developer. He transformed our outdated platform into a modern, high-performance web application. His attention to detail and ability to solve complex frontend challenges is truly impressive.",
-      "stars": 5
-    },
-    {
-      "name": "Elena Petrova",
-      "role": "Product Manager, E-Shop Solutions",
-      "review": "Working with Marko was a seamless experience. He not only delivered the project ahead of schedule but also suggested UI improvements that significantly boosted our user engagement. Highly recommended!",
+      "name": "Dr. Martin Stoykov",
+      "role": "Business Owner, Stoykovmed",
+      "review": "",
       "stars": 5
     }
   ]

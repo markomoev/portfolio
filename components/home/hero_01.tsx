@@ -28,7 +28,7 @@ export default function Hero() {
       {/* Top Decoration / Branding (Minimal) */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
           <div className="absolute top-20 right-10 md:right-20 text-right opacity-30">
-             <h1 className="text-[10rem] md:text-[16rem] leading-none font-bold text-slate-100 select-none">M</h1>
+             <span aria-hidden="true" className="text-[10rem] md:text-[16rem] leading-none font-bold text-slate-100 select-none">M</span>
           </div>
       </div>
 
