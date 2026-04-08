@@ -34,7 +34,7 @@ export default function Reviews() {
             </p>
         </motion.div>
 
-        <div className="w-[calc(100%+2rem)] -mx-4 px-4 md:w-full md:mx-auto md:px-0 flex gap-4 md:gap-8 overflow-x-auto pb-8 pt-2 snap-x snap-mandatory touch-pan-x md:grid md:grid-cols-2 md:overflow-x-visible md:pb-0 max-w-5xl after:content-[''] after:w-px after:shrink-0 md:after:hidden">
+        <div className="w-[calc(100%+2rem)] -mx-4 px-4 md:w-full md:mx-auto md:px-0 flex gap-4 md:gap-8 overflow-x-auto pb-8 pt-2 snap-x snap-mandatory touch-pan-x md:flex md:justify-center md:overflow-x-visible md:pb-0 max-w-5xl after:content-[''] after:w-px after:shrink-0 md:after:hidden">
           {reviews.map((item, index) => (
             <motion.div
               key={index}
@@ -42,7 +42,7 @@ export default function Reviews() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
               viewport={{ once: true, amount: 0.2 }}
-              className="group relative w-[85vw] shrink-0 snap-start md:w-auto md:shrink-1"
+              className="group relative w-[85vw] shrink-0 snap-start md:w-full md:max-w-xl md:shrink-1"
             >
               <GlassCard className="p-8 relative overflow-hidden">
                 <Quote className="absolute top-8 right-8 text-indigo-100 w-12 h-12 rotate-180 group-hover:text-indigo-200 transition-colors" />
