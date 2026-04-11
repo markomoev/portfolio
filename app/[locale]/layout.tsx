@@ -2,6 +2,7 @@ import "../globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://markomoev.com"),
     title: "Marko Moev | Portfolio",
     description: "I help ambitious founders and brands build digital products that people actually believe in. Fast, SEO-ready, mobile-first websites for local businesses, creators & startups.",
     keywords: ["Marko Moev", "web developer", "web design", "Next.js", "SEO", "websites for startups", "freelance web developer"],
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
     creator: "Marko Moev",
     openGraph: {
         type: "website",
+        url: "https://markomoev.com",
         title: "Marko Moev | Portfolio",
         description: "I help ambitious founders and brands build digital products that people actually believe in.",
         siteName: "Marko Moev",
