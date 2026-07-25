@@ -43,10 +43,10 @@ export default function Projects() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.3 }}
-                    className="flex justify-center mb-16 md:mb-24 w-full"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16 md:mb-24 w-full max-w-4xl"
                 >
-                    <a href="https://drstoykov.net/" target="_blank" rel="noopener noreferrer" className="w-full max-w-xl">
-                      <GlassCard variant="elevated" className="p-8 md:p-10 group">
+                    <a href="https://drstoykov.net/" target="_blank" rel="noopener noreferrer" className="w-full">
+                      <GlassCard variant="elevated" className="p-8 md:p-10 group h-full">
                         <div className="flex flex-col gap-3">
                           <div className="relative w-full h-[52px]">
                             <Image
@@ -59,6 +59,22 @@ export default function Projects() {
                           </div>
                           <span className="text-xs font-bold uppercase tracking-widest text-slate-400">{t('drstoykov-subheading')}</span>
                           <p className="text-sm md:text-base text-slate-600 leading-relaxed">{t('drstoykov-description')}</p>
+                          <div className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-slate-600 group-hover:text-indigo-600 transition-colors">
+                            <span>View live</span>
+                            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:rotate-45" />
+                          </div>
+                        </div>
+                      </GlassCard>
+                    </a>
+
+                    <a href="https://www.plenty.bg/" target="_blank" rel="noopener noreferrer" className="w-full">
+                      <GlassCard variant="elevated" className="p-8 md:p-10 group h-full">
+                        <div className="flex flex-col gap-3">
+                          <div className="flex items-center h-[52px]">
+                            <span className="text-3xl md:text-4xl font-black tracking-tight text-slate-900">PLENTY</span>
+                          </div>
+                          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">{t('plenty-subheading')}</span>
+                          <p className="text-sm md:text-base text-slate-600 leading-relaxed">{t('plenty-description')}</p>
                           <div className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-slate-600 group-hover:text-indigo-600 transition-colors">
                             <span>View live</span>
                             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:rotate-45" />
