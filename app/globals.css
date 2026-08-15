@@ -44,6 +44,25 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-edge: var(--edge);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+
+  --text-14: 14px;
+  --text-16: 16px;
+  --text-18: 18px;
+  --text-22: 22px;
+  --text-28: 28px;
+  --text-38: 38px;
+  --text-52: 52px;
+  --text-72: 72px;
 }
 
 :root {
@@ -80,6 +99,14 @@
   /* Accent pair tuned towards your indigo/violet look */
   --accent-a: oklch(0.6 0.18 275);
   --accent-b: oklch(0.55 0.2 305);
+
+  --paper: #F5F5F2;
+  --ink: #12141A;
+  --muted: #6B6F76;
+  --edge: #E2E2DD;
+  --accent: #1F4DFF;
+  --accent-soft: #DDE4FF;
+  --ok: #17805A;
 }
 
 .dark {
@@ -123,6 +150,23 @@
   body {
     @apply bg-background text-foreground;
     font-family: inherit;
+    font-feature-settings: "locl" 1;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   code,

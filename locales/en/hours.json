@@ -1,0 +1,8 @@
+{
+  "label": "OPENING HOURS",
+  "weekdays": "Monday – Friday",
+  "saturday": "Saturday",
+  "hint": "Change it. This is exactly how you will do it once the site is ready.",
+  "ariaWeekdays": "Edit Monday–Friday opening hours. The change stays on this screen and is not saved.",
+  "ariaSaturday": "Edit Saturday opening hours. The change stays on this screen and is not saved."
+}

@@ -34,7 +34,10 @@ export default function FAQ() {
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : idx)}
-                  className="w-full flex items-start justify-between gap-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-2xl"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${idx}`}
+                  id={`faq-button-${idx}`}
+                  className="w-full flex items-start justify-between gap-4 text-left rounded-2xl"
                 >
                   <div className="min-w-0">
                     <div className="text-xs font-bold uppercase tracking-widest text-slate-400">
@@ -54,6 +57,9 @@ export default function FAQ() {
                 <AnimatePresence initial={false} mode="popLayout">
                   {isOpen && (
                     <motion.div
+                      id={`faq-panel-${idx}`}
+                      role="region"
+                      aria-labelledby={`faq-button-${idx}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

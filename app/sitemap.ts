@@ -1,12 +1,38 @@
 import type { MetadataRoute } from "next";
+import i18nConfig from "@/i18nConfig";
+import { getAllCaseStudies } from "@/content/case-studies";
+
+const SITE_URL = "https://markomoev.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    return [
-        {
-            url: "https://markomoev.com",
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 1,
-        },
-    ];
+  const locales = i18nConfig.locales;
+  const studies = getAllCaseStudies();
+  const now = new Date();
+
+  const paths = [
+    "",
+    "/proekti",
+    "/kontakt",
+    "/poveritelnost",
+    ...studies.map((study) => `/proekti/${study.slug}`),
+  ];
+
+  const localized: MetadataRoute.Sitemap = locales.flatMap((locale) =>
+    paths.map((path) => ({
+      url: `${SITE_URL}/${locale}${path}`,
+      lastModified: now,
+      changeFrequency: path === "" ? "weekly" : "monthly",
+      priority: path === "" ? 1 : 0.7,
+    }))
+  );
+
+  return [
+    ...localized,
+    {
+      url: `${SITE_URL}/lab`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.1,
+    },
+  ];
 }

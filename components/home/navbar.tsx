@@ -127,14 +127,18 @@ export default function Navbar() {
     // eslint-disable-next-line
     document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
   
-    // redirecting to the right path for the language
-    if (
+    const segments = currentPathname.split("/");
+    const localeInPath = i18nConfig.locales.find((l) => segments[1] === l);
+
+    if (localeInPath) {
+      segments[1] = newLocale;
+      router.push(segments.join("/") || `/${newLocale}`);
+    } else if (
       currentLocale === i18nConfig.defaultLocale &&
       !i18nConfig.prefixDefault
     ) {
-      router.push("/" + newLocale + currentPathname)
-    }
-    else {
+      router.push("/" + newLocale + currentPathname);
+    } else {
       router.push(
         currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
       );

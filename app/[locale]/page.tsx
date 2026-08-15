@@ -1,17 +1,17 @@
-import Navbar from "@/components/home/navbar";
 import Hero_01 from "@/components/home/hero_01";
 import initTranslations from "../i18next";
 import TranslationsProvider from "@/components/TranslationProvider";
-import Skills from "@/components/home/skills";
-import Projects from "@/components/home/projects";
-import Hero_02 from "@/components/home/hero_02";
-import Reviews from "@/components/home/reviews";
+import Problem from "@/components/home/problem";
+import FeaturedProjects from "@/components/home/featured-projects";
 import Contact from "@/components/home/contact";
 import Services from "@/components/home/services";
 import Process from "@/components/home/process";
+import Promises from "@/components/home/promises";
+import Reviews from "@/components/home/reviews";
 import FAQ from "@/components/home/faq";
+import { FaqJsonLd } from "@/components/seo/json-ld";
 
-const i18nNamespaces = ['default', 'skills', 'projects', 'hero_02', 'reviews', 'services', 'process', 'faq', 'contact'];
+const i18nNamespaces = ['default', 'hours', 'problem', 'projects', 'promises', 'reviews', 'services', 'process', 'faq', 'contact'];
 
 export default async function Home({params}: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -20,14 +20,14 @@ export default async function Home({params}: { params: Promise<{ locale: string 
 
   return (
     <TranslationsProvider resources={resources} locale={locale} namespaces={i18nNamespaces}>
+      <FaqJsonLd locale={locale} />
       <main>
-          <Navbar/>
           <Hero_01/>
+          <Problem/>
+          <FeaturedProjects locale={locale} />
           <Services/>
-          <Skills/>
-          <Projects/>
           <Process/>
-          <Hero_02/>
+          <Promises/>
           <Reviews/>
           <FAQ/>
           <Contact/>

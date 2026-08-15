@@ -18,6 +18,10 @@ const loadResource = (language: string, namespace: string) => {
         case 'packages': loader = import('@/locales/en/packages.json'); break;
         case 'process': loader = import('@/locales/en/process.json'); break;
         case 'faq': loader = import('@/locales/en/faq.json'); break;
+        case 'contact': loader = import('@/locales/en/contact.json'); break;
+        case 'problem': loader = import('@/locales/en/problem.json'); break;
+        case 'promises': loader = import('@/locales/en/promises.json'); break;
+        case 'hours': loader = import('@/locales/en/hours.json'); break;
         default: loader = import(`@/locales/en/${namespace}.json`); break;
       }
       break;
@@ -32,6 +36,10 @@ const loadResource = (language: string, namespace: string) => {
         case 'packages': loader = import('@/locales/bg/packages.json'); break;
         case 'process': loader = import('@/locales/bg/process.json'); break;
         case 'faq': loader = import('@/locales/bg/faq.json'); break;
+        case 'contact': loader = import('@/locales/bg/contact.json'); break;
+        case 'problem': loader = import('@/locales/bg/problem.json'); break;
+        case 'promises': loader = import('@/locales/bg/promises.json'); break;
+        case 'hours': loader = import('@/locales/bg/hours.json'); break;
         default: loader = import(`@/locales/bg/${namespace}.json`); break;
       }
       break;

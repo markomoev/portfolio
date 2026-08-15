@@ -116,7 +116,7 @@ export default function Skills(){
                             alt="Marko Moev"
                             fill
                             className="object-cover object-[center_10%] md:object-[center_20%]"
-                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            sizes="(max-width: 1024px) 90vw, 480px"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 to-transparent" />
                     </div>

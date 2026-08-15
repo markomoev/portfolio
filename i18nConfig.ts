@@ -1,6 +1,6 @@
 const i18nConfig = {
-    locales: ['en', 'bg'],
-    defaultLocale: 'en',
+    locales: ['bg', 'en'],
+    defaultLocale: 'bg',
     prefixDefault: true
 }
 
