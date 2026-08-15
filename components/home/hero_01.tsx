@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import HoursDemo from "@/components/home/hours-demo";
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -27,8 +26,6 @@ export default function Hero() {
         <p className="font-body text-18 text-ink leading-relaxed max-w-[68ch] min-h-[7.5em] sm:min-h-[4.5em]">
           {t("subheadline")}
         </p>
-
-        <HoursDemo />
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 min-h-[3.25rem]">
           <a

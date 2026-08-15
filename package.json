@@ -6,7 +6,8 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "dev": "i18nexus pull -k 80jqjB5juxmPzP0MUTCrBg && next dev",
+    "dev": "next dev",
+    "i18n:pull": "i18nexus pull -k 80jqjB5juxmPzP0MUTCrBg",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

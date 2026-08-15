@@ -2,7 +2,7 @@ import faqBg from "@/locales/bg/faq.json";
 import faqEn from "@/locales/en/faq.json";
 
 const SITE_URL = "https://markomoev.com";
-const EMAIL = "marko@markomoev.com";
+const EMAIL = "marko.moev.business@gmail.com";
 
 type FaqFile = { headline: string; items: { q: string; a: string }[] };
 

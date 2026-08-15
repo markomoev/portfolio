@@ -41,7 +41,7 @@ export default async function PrivacyPage({
     <main className="w-full px-4 sm:px-10 lg:px-20 py-28 md:py-32">
       {/*
         This privacy policy is a template, not legal advice.
-        Review and complete all [ПОПЪЛНИ] fields before publishing.
+        Review the text before publishing.
       */}
       <article className="max-w-[68ch] mx-auto">
         <h1 className="font-display font-bold tracking-[-0.02em] text-ink text-[clamp(28px,5vw,52px)]">
@@ -60,11 +60,9 @@ export default async function PrivacyPage({
           {isEn ? "Name: Marko Moev" : "Име: Марко Моев"}
           <br />
           {isEn ? "Email: " : "Имейл: "}
-          <a className="text-accent underline-offset-2 hover:underline" href="mailto:marko@markomoev.com">
-            marko@markomoev.com
+          <a className="text-accent underline-offset-2 hover:underline" href="mailto:marko.moev.business@gmail.com">
+            marko.moev.business@gmail.com
           </a>
-          <br />
-          {isEn ? "Company ID (EIK): [ПОПЪЛНИ: ЕИК]" : "ЕИК: [ПОПЪЛНИ: ЕИК]"}
         </p>
 
         <h2 className="mt-10 font-display text-22 font-semibold tracking-[-0.02em] text-ink">
@@ -108,8 +106,8 @@ export default async function PrivacyPage({
         </h2>
         <p className="mt-3 font-body text-16 text-ink leading-relaxed">
           {isEn
-            ? "Write to marko@markomoev.com. I will respond within 30 days."
-            : "Пиши на marko@markomoev.com. Ще отговоря в срок до 30 дни."}
+            ? "Write to marko.moev.business@gmail.com. I will respond within 30 days."
+            : "Пиши на marko.moev.business@gmail.com. Ще отговоря в срок до 30 дни."}
         </p>
 
         <p className="mt-10 font-body text-16">

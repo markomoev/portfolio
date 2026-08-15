@@ -117,9 +117,9 @@ export default async function Layout({
           namespaces={["default"]}
         >
           <Navbar />
-          {children}
-          <Footer locale={locale} />
         </TranslationsProvider>
+        {children}
+        <Footer locale={locale} />
       </body>
     </html>
   );

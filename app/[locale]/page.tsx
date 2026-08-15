@@ -11,7 +11,7 @@ import Reviews from "@/components/home/reviews";
 import FAQ from "@/components/home/faq";
 import { FaqJsonLd } from "@/components/seo/json-ld";
 
-const i18nNamespaces = ['default', 'hours', 'problem', 'projects', 'promises', 'reviews', 'services', 'process', 'faq', 'contact'];
+const i18nNamespaces = ['default', 'problem', 'projects', 'promises', 'reviews', 'services', 'process', 'faq', 'contact'];
 
 export default async function Home({params}: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

@@ -8,7 +8,7 @@ import { budgetValues, businessTypeValues } from "@/lib/contact-schema";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-const PUBLIC_EMAIL = "marko@markomoev.com";
+const PUBLIC_EMAIL = "marko.moev.business@gmail.com";
 
 export default function Contact() {
   const { t } = useTranslation("contact");

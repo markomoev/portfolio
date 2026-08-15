@@ -43,7 +43,7 @@
   "error-message": "Write a short note about what you need.",
   "error-consent": "Tick the privacy policy box so I can reply to you.",
   "error-rateLimit": "Wait a few minutes before sending again.",
-  "error-generic": "The message did not send. Try again or email marko@markomoev.com.",
+  "error-generic": "The message did not send. Try again or email marko.moev.business@gmail.com.",
   "success-title": "I have your message.",
   "success-desc": "I'll write back within 24 hours on a working day to schedule the free call.",
   "success-again": "Send another message",
