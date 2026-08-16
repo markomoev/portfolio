@@ -1,6 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode, type Ref } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+  type Ref,
+} from "react";
 import { cn } from "@/lib/utils";
 
 type RevealTag = "div" | "section" | "article" | "li";
@@ -10,6 +17,7 @@ type RevealProps = {
   /** Stagger in milliseconds, matching the design's data-delay values. */
   delay?: number;
   className?: string;
+  style?: CSSProperties;
   as?: RevealTag;
 };
 
@@ -22,7 +30,13 @@ type RevealProps = {
  * is never invisible to a visitor without JavaScript, to a crawler that does
  * not run it, or to someone who prefers reduced motion.
  */
-export function Reveal({ children, delay = 0, className, as: Tag = "div" }: RevealProps) {
+export function Reveal({
+  children,
+  delay = 0,
+  className,
+  style,
+  as: Tag = "div",
+}: RevealProps) {
   const ref = useRef<HTMLElement>(null);
   const [armed, setArmed] = useState(false);
   const [revealed, setRevealed] = useState(false);
@@ -60,7 +74,11 @@ export function Reveal({ children, delay = 0, className, as: Tag = "div" }: Reve
         "transition-[opacity,transform] duration-[600ms] ease-[cubic-bezier(0,0,.58,1)] motion-reduce:transition-none",
         className
       )}
-      style={hidden ? { opacity: 0, transform: "translateY(24px)" } : undefined}
+      style={
+        hidden
+          ? { ...style, opacity: 0, transform: "translateY(24px)" }
+          : style
+      }
     >
       {children}
     </Tag>
