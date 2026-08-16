@@ -32,7 +32,7 @@ export default function TypeTestPage() {
             Body · Onest 400 / 500 / 600
           </p>
           <p className="font-body text-18 font-normal max-w-[68ch]">
-            Правя сайтове за локален бизнес — бързи, намираеми в Google и с панел
+            Правя сайтове за Вашия бизнес — бързи, намираеми в Google и с панел
             за управление, който работи от телефона ти.
           </p>
           <p className="font-body text-18 font-medium">{loclLetters}</p>
@@ -44,7 +44,7 @@ export default function TypeTestPage() {
             Utility · JetBrains Mono 500
           </p>
           <p className="font-mono text-14 uppercase tracking-[0.08em]">
-            Уеб сайтове за локален бизнес · България
+            Уеб сайтове за Вашия бизнес · България
           </p>
           <p className="font-mono text-16 uppercase tracking-[0.08em]">
             {loclLetters}

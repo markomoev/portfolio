@@ -1,78 +1,90 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-import { GlassCard } from "@/components/ui/glass-card";
+import { Minus, Plus } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
 
 type FaqItem = { q: string; a: string };
 
 export default function FAQ() {
   const { t } = useTranslation("faq");
-  const rawItems = t("items", { returnObjects: true, defaultValue: [] }) as unknown;
-  const items: FaqItem[] = Array.isArray(rawItems) ? (rawItems as FaqItem[]) : [];
+  const raw = t("items", { returnObjects: true, defaultValue: [] }) as unknown;
+  const items: FaqItem[] = Array.isArray(raw) ? (raw as FaqItem[]) : [];
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative py-16 md:py-24 scroll-mt-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.4 }}
-          className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900"
-        >
-          {t("headline")}
-        </motion.h2>
+    <section
+      id="faq"
+      className="relative scroll-mt-28 overflow-hidden bg-[var(--glass)] px-[clamp(16px,3vw,36px)] py-[clamp(64px,9vw,112px)]"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(560px_circle_at_50%_0%,color-mix(in_srgb,var(--decal)_10%,transparent),transparent_52%)]"
+      />
+      <div className="relative mx-auto max-w-[860px]">
+        <Reveal className="mb-10">
+          <h2 className="font-vinyl m-0 text-[clamp(36px,6vw,72px)] text-[var(--vinyl)]">
+            {t("headline")}
+          </h2>
+          <p className="mt-3 max-w-[48ch] text-[16px] leading-relaxed text-[var(--vinyl)]/75">
+            {t("subheadline")}
+          </p>
+        </Reveal>
 
-        <div className="mt-10 md:mt-14 grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
-          {items.map((item, idx) => {
-            const isOpen = open === idx;
+        <div className="flex flex-col">
+          {items.map((item, index) => {
+            const isOpen = open === index;
             return (
-              <GlassCard key={item.q} className="p-6 md:p-7">
-                <button
-                  type="button"
-                  onClick={() => setOpen(isOpen ? null : idx)}
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-panel-${idx}`}
-                  id={`faq-button-${idx}`}
-                  className="w-full flex items-start justify-between gap-4 text-left rounded-2xl"
-                >
-                  <div className="min-w-0">
-                    <div className="text-xs font-bold uppercase tracking-widest text-slate-400">
-                      {String(idx + 1).padStart(2, "0")}
-                    </div>
-                    <div className="mt-2 text-lg font-bold tracking-tight text-slate-900">
+              <Reveal
+                key={item.q}
+                delay={index * 50}
+                className={
+                  isOpen
+                    ? "border-b border-[var(--vinyl)]/25 bg-[color-mix(in_srgb,var(--decal)_9%,transparent)]"
+                    : "border-b border-[var(--vinyl)]/25"
+                }
+              >
+                <h3 className="m-0">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(isOpen ? null : index)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-panel-${index}`}
+                    id={`faq-button-${index}`}
+                    className="flex w-full items-start justify-between gap-4 py-5 text-left"
+                  >
+                    <span className="font-vinyl text-[clamp(18px,2vw,24px)] leading-[1.05] text-[var(--vinyl)]">
                       {item.q}
-                    </div>
-                  </div>
-                  <div className="mt-2 h-7 w-7 shrink-0 rounded-full border border-slate-200 bg-slate-50 flex items-center justify-center">
-                    <span className="text-slate-500 font-black text-sm leading-none select-none">
-                      {isOpen ? "–" : "+"}
                     </span>
-                  </div>
-                </button>
-
-                <AnimatePresence initial={false} mode="popLayout">
+                    <span
+                      aria-hidden="true"
+                      className="mt-1 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-[var(--decal)] text-white"
+                    >
+                      {isOpen ? <Minus size={15} /> : <Plus size={15} />}
+                    </span>
+                  </button>
+                </h3>
+                <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
-                      id={`faq-panel-${idx}`}
+                      id={`faq-panel-${index}`}
                       role="region"
-                      aria-labelledby={`faq-button-${idx}`}
+                      aria-labelledby={`faq-button-${index}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      transition={{ duration: 0.25, ease: [0, 0, 0.58, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="mt-4 text-sm md:text-base text-slate-600 leading-relaxed">
+                      <p className="mt-0 mb-5 max-w-[62ch] text-[15px] leading-relaxed text-[var(--vinyl)]/80">
                         {item.a}
                       </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </GlassCard>
+              </Reveal>
             );
           })}
         </div>

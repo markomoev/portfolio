@@ -1,0 +1,22 @@
+{
+  "headline-1": "Why businesses",
+  "headline-2": "trust me",
+  "subheadline": "I don't just write code; I build solutions that drive business growth. My approach combines technical expertise with a deep understanding of product development.",
+  "image-alt": "Working on a client project",
+  "badge-title": "Client Focused",
+  "badge-sub": "Dedicated to Your Growth",
+  "items": [
+    {
+      "title": "Clear Communication",
+      "text": "I keep you in the loop at every stage. No technical jargon, just clear updates on progress and milestones."
+    },
+    {
+      "title": "Uncompromising Quality",
+      "text": "I write clean, maintainable code that scales. Your product will be robust, secure, and ready for future growth."
+    },
+    {
+      "title": "On-Time Delivery",
+      "text": "I respect deadlines. You can count on me to deliver features when I say I will, helping you plan your launch with confidence."
+    }
+  ]
+}

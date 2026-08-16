@@ -21,6 +21,7 @@ const loadResource = (language: string, namespace: string) => {
         case 'contact': loader = import('@/locales/en/contact.json'); break;
         case 'problem': loader = import('@/locales/en/problem.json'); break;
         case 'promises': loader = import('@/locales/en/promises.json'); break;
+        case 'about': loader = import('@/locales/en/about.json'); break;
         default: loader = import(`@/locales/en/${namespace}.json`); break;
       }
       break;
@@ -38,6 +39,7 @@ const loadResource = (language: string, namespace: string) => {
         case 'contact': loader = import('@/locales/bg/contact.json'); break;
         case 'problem': loader = import('@/locales/bg/problem.json'); break;
         case 'promises': loader = import('@/locales/bg/promises.json'); break;
+        case 'about': loader = import('@/locales/bg/about.json'); break;
         default: loader = import(`@/locales/bg/${namespace}.json`); break;
       }
       break;

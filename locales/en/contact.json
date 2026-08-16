@@ -1,6 +1,8 @@
 {
   "badge": "Free consultation",
   "headline": "Let's talk about your site — for free.",
+  "headline-lead": "Let's talk about your site —",
+  "headline-accent": "for free.",
   "subheadline": "Fill in the form or call. No commitment.",
   "perk-call-title": "Free call",
   "perk-call-desc": "We discuss the project, goals and timeline — free of charge.",
@@ -16,7 +18,7 @@
   "label-business": "Business type",
   "label-budget": "Approximate budget",
   "label-message": "Message",
-  "label-consent": "I agree to the privacy policy.",
+  "label-consent": "I agree to the",
   "placeholder-name": "First and last name",
   "placeholder-email": "name@company.com",
   "placeholder-phone": "+359 …",

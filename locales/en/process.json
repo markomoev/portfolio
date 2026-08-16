@@ -1,6 +1,8 @@
 {
-  "headline": "A clear, fast process",
-  "subheadline": "You’ll always know what’s happening, what you’ll get, and when we launch.",
+  "headline-1": "A clear,",
+  "headline-2": "fast process",
+  "subheadline": "You'll always know what's happening, what you'll get, and when we launch.",
+  "step-label": "Step",
   "steps": [
     {
       "title": "Discovery",
@@ -18,6 +20,26 @@
       "title": "Launch",
       "text": "Final QA, deployment, and a smooth handoff so you can run with it."
     }
+  ],
+  "mindset-headline-1": "Business mindset,",
+  "mindset-headline-2": "not just writing code.",
+  "mindset-subheadline": "Technology changes, but the right mindset remains. I believe good software isn't just syntax — it's a tool to solve real problems and create value.",
+  "mindset": [
+    {
+      "title": "Quick to Adapt",
+      "text": "The tech world never stands still. I quickly master new languages, frameworks, and tools to stay relevant and effective."
+    },
+    {
+      "title": "Detail & Quality",
+      "text": "I write clean, readable, and maintainable code. For me, it's not just about making things work, but building them sustainably."
+    },
+    {
+      "title": "Teamwork",
+      "text": "Software is built by people for people. I value feedback, communicate clearly, and ask the right questions so we move forward together."
+    },
+    {
+      "title": "Growth Oriented",
+      "text": "I don't just look for \"work,\" but an environment to grow. I strive to build scalable solutions that last, not just temporary patches."
+    }
   ]
 }
-

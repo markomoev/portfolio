@@ -1,6 +1,8 @@
 {
   "badge": "Безплатна консултация",
   "headline": "Да говорим за сайта ти — безплатно.",
+  "headline-lead": "Да говорим за сайта ти —",
+  "headline-accent": "безплатно.",
   "subheadline": "Попълни формата или се обади. Без ангажимент.",
   "perk-call-title": "Безплатен разговор",
   "perk-call-desc": "Обсъждаме проекта, целите и срока — безплатно.",
@@ -16,7 +18,7 @@
   "label-business": "Тип бизнес",
   "label-budget": "Приблизителен бюджет",
   "label-message": "Съобщение",
-  "label-consent": "Съгласен съм с политиката за поверителност.",
+  "label-consent": "Съгласен съм с",
   "placeholder-name": "Име и фамилия",
   "placeholder-email": "ime@firma.bg",
   "placeholder-phone": "+359 …",

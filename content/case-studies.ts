@@ -72,7 +72,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome: fill,
     media: [placeholderMedia("/case-studies/placeholder.svg")],
-    stack: [],
+    stack: ["Shopify", "Booking", "E-commerce"],
     testimonial: {
       quote: {
         bg: "Марко изгради сайта на нашата клиника от нулата и резултатът надмина очакванията ми. Изглежда изчистено, зарежда бързо и пациентите ни лесно намират всичко необходимо. Беше професионален и комуникативен през целия процес.",
@@ -125,8 +125,8 @@ export const caseStudies: CaseStudy[] = [
           en: "Opening hours, location and a map — the most visible elements after the first screen.",
         },
         why: {
-          bg: "Това са двата въпроса, с които всеки локален клиент влиза.",
-          en: "These are the two questions every local visitor arrives with.",
+          bg: "Това са двата въпроса, с които всеки клиент влиза.",
+          en: "These are the two questions every visitor arrives with.",
         },
       },
       {
@@ -146,7 +146,18 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome: fill,
     media: [placeholderMedia("/case-studies/placeholder.svg")],
-    stack: [],
+    stack: ["Next.js", "Admin panel", "Local SEO"],
+    testimonial: {
+      quote: {
+        bg: "На Plenty му трябваше сайт, който да води хора до магазина, не да продава през телефона. Марко го разбра още на първия разговор. Сега клиентите виждат къде сме, кога сме отворени и какво ще намерят, а снимките и колекциите ги сменям сам. Чисто, ясно и без да му пиша за всяка нова дреха.",
+        en: "Plenty needed a site that brings people to the shop, not one that tries to sell from the phone. Marko got that from the first conversation. Customers can now see where we are, when we're open and what they'll find, and I update the photos and collections myself. Clean, clear, and I don't have to message him for every new piece.",
+      },
+      author: "Момчил Моев",
+      role: {
+        bg: "Собственик, Plenty",
+        en: "Owner, Plenty",
+      },
+    },
     featured: true,
   },
 ];

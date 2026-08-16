@@ -13,7 +13,7 @@ export async function generateMetadata({
   const description =
     locale === "en"
       ? "How Marko Moev collects and uses personal data from the contact form."
-      : "Как Марко Моев събира и използва лични данни от контактната форма.";
+      : "Как Marko Moev събира и използва лични данни от контактната форма.";
 
   return {
     title,
@@ -57,7 +57,7 @@ export default async function PrivacyPage({
           {isEn ? "Data controller" : "Администратор на данните"}
         </h2>
         <p className="mt-3 font-body text-16 text-ink leading-relaxed">
-          {isEn ? "Name: Marko Moev" : "Име: Марко Моев"}
+          {isEn ? "Name: Marko Moev" : "Име: Marko Moev"}
           <br />
           {isEn ? "Email: " : "Имейл: "}
           <a className="text-accent underline-offset-2 hover:underline" href="mailto:marko.moev.business@gmail.com">

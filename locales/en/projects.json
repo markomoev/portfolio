@@ -1,9 +1,33 @@
 {
-  "coinwise-description": "A comprehensive money management website to track expenses, manage budgets, and analyze financial habits.",
-  "drstoykov-description": "A premium e-commerce and booking platform for Dr. Stoykov's clinical practice and Deflamax longevity products.\n",
-  "drstoykov-subheading": "Plastic Surgery & Aesthetics",
-  "headline-1": "Brands that trusted me",
-  "headline-2": "My personal projects",
-  "hustly-description": "A modern web application designed to help you manage tasks, organize side hustles, and boost productivity.",
-  "portfolio-description": "My personal website showcasing my projects, skills, and professional experience as a frontend developer."
+  "headline": "Selected work",
+  "badge": "Brands that trusted me",
+  "live": "View live",
+  "caseStudy": "Case study",
+  "all": "All projects",
+  "items": [
+    {
+      "slug": "stoykovmed",
+      "number": "01",
+      "eyebrow": "Plastic Surgery & Aesthetics",
+      "headline": "Two businesses in one site — clinic and products.",
+      "text": "A patient looking for a procedure and a buyer of the Deflamax product line are two different visitors. I split the flows from the first screen, added online booking, and built the shop beside it.",
+      "stack": ["Shopify", "Booking", "E-commerce"],
+      "url": "https://drstoykov.net/"
+    },
+    {
+      "slug": "plenty",
+      "number": "02",
+      "eyebrow": "Clothing store · Lovech",
+      "headline": "A site that brings people to the store door.",
+      "text": "The business happens in the physical shop, so one page does one job: what you will find and where the store is. Hours, location and map sit right under the first screen — and the owner changes the collections from a panel.",
+      "stack": ["Next.js", "Admin panel", "Local SEO"],
+      "url": "https://www.plenty.bg/"
+    }
+  ],
+  "stats": [
+    { "value": "3–7", "label": "days to launch a landing page", "tone": "light" },
+    { "value": "24h", "label": "reply on working days", "tone": "indigo" },
+    { "value": "30", "label": "days of free revisions", "tone": "light" },
+    { "value": "100%", "label": "of the code and access is yours", "tone": "dark" }
+  ]
 }

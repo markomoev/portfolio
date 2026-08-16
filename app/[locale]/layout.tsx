@@ -1,7 +1,7 @@
 import "../globals.css";
 import type { Metadata } from "next";
 import i18nConfig from "@/i18nConfig";
-import { fontBody, fontDisplay, fontMono } from "@/lib/fonts";
+import { fontBody, fontDisplay, fontHand, fontMono } from "@/lib/fonts";
 import initTranslations from "../i18next";
 import TranslationsProvider from "@/components/TranslationProvider";
 import Navbar from "@/components/home/navbar";
@@ -15,12 +15,12 @@ const metaByLocale: Record<
   { title: string; description: string; siteName: string; keywords: string[]; ogLocale: string }
 > = {
   bg: {
-    title: "Марко Моев — уебсайтове за локален бизнес",
+    title: "Marko Moev — уебсайтове за Вашия бизнес",
     description:
-      "Правя сайтове за локален бизнес в България — бързи, намираеми в Google и с панел за управление, който работи от телефона ти. Ловеч и страната.",
-    siteName: "Марко Моев",
+      "Правя сайтове за Вашия бизнес в България — бързи, намираеми в Google, с фиксирана цена, и с код на ваше име. Ловеч и страната.",
+    siteName: "Marko Moev",
     keywords: [
-      "Марко Моев",
+      "Marko Moev",
       "уеб разработчик",
       "уеб дизайн",
       "Next.js",
@@ -31,9 +31,9 @@ const metaByLocale: Record<
     ogLocale: "bg_BG",
   },
   en: {
-    title: "Marko Moev — websites for local businesses",
+    title: "Marko Moev — websites for your business",
     description:
-      "I build websites for local businesses in Bulgaria — fast, findable on Google, with an admin panel that works from your phone. Lovech and nationwide.",
+      "I build websites for your business in Bulgaria — fast, findable on Google, at a fixed price, with the code in your name. Lovech and nationwide.",
     siteName: "Marko Moev",
     keywords: [
       "Marko Moev",
@@ -106,9 +106,17 @@ export default async function Layout({
   return (
     <html
       lang={locale}
-      className={`${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable}`}
+      className={`${fontDisplay.variable} ${fontBody.variable} ${fontHand.variable} ${fontMono.variable}`}
     >
       <body>
+        {/*
+          THESIS: The homepage is a type-led offer on sky paper. The Plenty phone is the proof; yellow and red stay accents, never fields.
+          OWN-WORLD: Daylight sky (#CFE6F8), navy ink (#0B1F3A), indigo action and atmosphere (#1F5FD6). Yellow and red only as marks — underlines, dots, a stripe. Extra-condensed grotesque.
+          STORY: A business owner sees a site for them, believes Marko launches fast at a fixed price with code they own, and books a free call.
+          FIRST VIEWPORT: Sky paper, indigo wash, indigo grid. Location pill. Stacked vinyl headline with indigo “Вашия/your”. Subhead. Two pill buttons. Plenty phone on the right, scroll-tilted, no stickers.
+          FORM: Type-led paper with product proof (middle path).
+          FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+        */}
         <ProfessionalServiceJsonLd locale={locale} />
         <PersonJsonLd locale={locale} />
         <TranslationsProvider

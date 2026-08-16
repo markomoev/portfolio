@@ -7,11 +7,11 @@ const EMAIL = "marko.moev.business@gmail.com";
 type FaqFile = { headline: string; items: { q: string; a: string }[] };
 
 export function ProfessionalServiceJsonLd({ locale }: { locale: string }) {
-  const name = locale === "en" ? "Marko Moev" : "Марко Моев";
+  const name = "Marko Moev";
   const description =
     locale === "en"
-      ? "Websites for local businesses in Bulgaria, with an admin panel the owner can use."
-      : "Уебсайтове за локален бизнес в България, с панел за управление, който собственикът ползва сам.";
+      ? "Websites for your business in Bulgaria — fast, findable on Google, at a fixed price."
+      : "Уебсайтове за Вашия бизнес в България — бързи, намираеми в Google, с фиксирана цена.";
 
   const data = {
     "@context": "https://schema.org",
@@ -36,7 +36,7 @@ export function PersonJsonLd({ locale }: { locale: string }) {
   const data = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: locale === "en" ? "Marko Moev" : "Марко Моев",
+    name: "Marko Moev",
     url: `${SITE_URL}/${locale}`,
     email: EMAIL,
     jobTitle: locale === "en" ? "Web developer" : "Уеб разработчик",

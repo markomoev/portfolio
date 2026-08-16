@@ -1,17 +1,19 @@
 {
+  "headline": "What\nI do",
+  "subheadline": "Three clear scopes. Pick the one that matches where your business is right now — I will tell you honestly if a smaller one is enough.",
   "includesLabel": "What's included",
   "outcomeLabel": "What you get at the end",
   "items": [
     {
       "number": "01",
-      "title": "Website for a local business",
+      "title": "Website for your business",
       "for": "For clinics, shops, salons and services that want to be found online.",
       "includes": [
         "up to 6 pages",
         "SEO basics",
         "Google Business profile",
         "contact form",
-        "admin panel"
+        "admin panel — coming soon"
       ],
       "outcome": "A site that shows up on Google, and access to change the content yourself."
     },
@@ -19,24 +21,14 @@
       "number": "02",
       "title": "Landing page for a specific offer",
       "for": "When you have one service, promotion or campaign and you want calls.",
-      "includes": [
-        "one page",
-        "copy for your offer",
-        "form",
-        "lead tracking"
-      ],
+      "includes": ["one page", "copy for your offer", "form", "lead tracking"],
       "outcome": "A page you can measure by the enquiries it brings."
     },
     {
       "number": "03",
       "title": "Shop or appointment booking",
       "for": "When you need to sell or take bookings online.",
-      "includes": [
-        "products or a calendar",
-        "payments",
-        "notifications",
-        "admin panel"
-      ],
+      "includes": ["products or a calendar", "payments", "notifications", "admin panel — coming soon"],
       "outcome": "A system that works without picking up the phone for every request."
     }
   ]

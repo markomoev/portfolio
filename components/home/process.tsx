@@ -1,64 +1,92 @@
 "use client";
 
-import React from "react";
-import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-import { GlassCard } from "@/components/ui/glass-card";
+import { Quote, Star } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
 
 type Step = { title: string; text: string };
+type Review = { name: string; role: string; review: string; stars: number };
+type PromiseItem = { title: string; text: string };
 
 export default function Process() {
   const { t } = useTranslation("process");
-  const rawSteps = t("steps", { returnObjects: true, defaultValue: [] }) as unknown;
-  const steps: Step[] = Array.isArray(rawSteps) ? (rawSteps as Step[]) : [];
+  const { t: tReviews } = useTranslation("reviews");
+  const { t: tPromises } = useTranslation("promises");
+
+  const asArray = <T,>(value: unknown): T[] => (Array.isArray(value) ? (value as T[]) : []);
+  const steps = asArray<Step>(t("steps", { returnObjects: true, defaultValue: [] }));
+  const reviews = asArray<Review>(tReviews("reviews", { returnObjects: true, defaultValue: [] }));
+  const promises = asArray<PromiseItem>(tPromises("items", { returnObjects: true, defaultValue: [] }));
 
   return (
-    <section id="process" className="relative py-16 md:py-24 scroll-mt-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.4 }}
-          className="max-w-3xl"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900">
-            {t("headline")}
+    <section
+      id="process"
+      className="scroll-mt-28 bg-[var(--vinyl)] px-[clamp(16px,3vw,36px)] py-[clamp(64px,9vw,112px)]"
+    >
+      <div className="mx-auto max-w-[1280px]">
+        <Reveal className="mb-[clamp(36px,5vw,56px)]">
+          <h2 className="font-vinyl m-0 text-[clamp(36px,6.4vw,80px)] text-white">
+            {t("headline-1")} {t("headline-2")}
           </h2>
-          <p className="mt-4 text-base md:text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-[46ch] text-[16px] leading-relaxed text-white/75">
             {t("subheadline")}
           </p>
-        </motion.div>
+        </Reveal>
 
-        <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-6">
-          {steps.map((s, idx) => (
-            <motion.div
-              key={s.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.07 * idx, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.25 }}
+        <div className="grid grid-cols-1 gap-4 min-[800px]:grid-cols-2">
+          {steps.map((step, index) => (
+            <Reveal
+              key={step.title}
+              delay={index * 70}
+              className="border-2 border-[var(--neon)]/40 bg-[var(--vinyl)] p-6"
             >
-              <GlassCard className="p-7 md:p-8 h-full">
-                <div className="flex items-center justify-between">
-                  <div className="text-xs font-bold uppercase tracking-widest text-slate-400">
-                    Step {idx + 1}
-                  </div>
-                  <div
-                    aria-hidden="true"
-                    className="h-7 w-7 rounded-full bg-indigo-100 flex items-center justify-center"
-                  >
-                    <span className="text-indigo-600 font-black text-xs">{idx + 1}</span>
-                  </div>
-                </div>
-                <h3 className="mt-4 text-xl font-bold tracking-tight text-slate-900">{s.title}</h3>
-                <p className="mt-3 text-sm md:text-base text-slate-600 leading-relaxed">
-                  {s.text}
-                </p>
-              </GlassCard>
-            </motion.div>
+              <div className="font-hand text-[15px] text-[var(--sticker)]">
+                {t("step-label")} {index + 1}
+              </div>
+              <h3 className="font-vinyl mt-2 text-[28px] text-white">{step.title}</h3>
+              <p className="mt-2 mb-0 text-[15px] leading-relaxed text-white/70">{step.text}</p>
+            </Reveal>
           ))}
         </div>
+
+        {reviews.length ? (
+          <div className="mt-[clamp(36px,5vw,56px)] grid grid-cols-1 gap-6 min-[900px]:grid-cols-2">
+            {reviews.map((review, index) => (
+              <Reveal key={review.name} delay={index * 80}>
+                <figure className="m-0 h-full border-l-[6px] border-[var(--sticker)] bg-white p-7 text-[var(--vinyl)]">
+                  <Quote size={28} strokeWidth={2} className="text-[var(--sticker)]" />
+                  <div className="mt-3 flex gap-0.5" aria-label={`${review.stars}/5`}>
+                    {Array.from({ length: review.stars }).map((_, starIndex) => (
+                      <Star key={starIndex} size={16} fill="currentColor" strokeWidth={0} />
+                    ))}
+                  </div>
+                  <blockquote className="mt-4 mb-4 text-[clamp(16px,1.5vw,20px)] leading-relaxed">
+                    {review.review}
+                  </blockquote>
+                  <figcaption className="font-extrabold">
+                    {review.name}
+                    <span className="mt-0.5 block text-[13px] font-medium opacity-70">
+                      {review.role}
+                    </span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        ) : null}
+
+        <Reveal delay={100} className="mt-6">
+          <div className="border-l-[6px] border-[var(--burst)] bg-white p-7 text-[var(--vinyl)]">
+            <h3 className="font-vinyl m-0 text-[28px]">{tPromises("headline")}</h3>
+            <ul className="mt-4 mb-0 flex list-none flex-col gap-3 p-0">
+              {promises.map((promise) => (
+                <li key={promise.title} className="text-[15px] leading-snug text-[var(--vinyl)]/80">
+                  <strong className="font-extrabold text-[var(--vinyl)]">{promise.title}</strong> {promise.text}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

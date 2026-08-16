@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Марко Моев";
+export const alt = "Marko Moev";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -14,7 +14,7 @@ export default async function OgImage({
     locale === "en"
       ? "A website you can change yourself afterwards."
       : "Сайт, който после можеш сам да променяш.";
-  const name = locale === "en" ? "Marko Moev" : "Марко Моев";
+  const name = "Marko Moev";
 
   return new ImageResponse(
     (

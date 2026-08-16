@@ -5,10 +5,14 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { budgetValues, businessTypeValues } from "@/lib/contact-schema";
+import { Reveal } from "@/components/ui/reveal";
 
 type Status = "idle" | "loading" | "success" | "error";
 
 const PUBLIC_EMAIL = "marko.moev.business@gmail.com";
+
+const fieldClass =
+  "w-full rounded-none border-2 border-[var(--edge)] bg-white px-3.5 py-3 text-[15px] text-[var(--vinyl)] outline-none placeholder:text-[var(--vinyl)]/40 focus:border-[var(--decal)]";
 
 export default function Contact() {
   const { t } = useTranslation("contact");
@@ -26,14 +30,10 @@ export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorKey, setErrorKey] = useState<string | null>(null);
 
-  const inputClass =
-    "w-full rounded-none border border-edge bg-paper px-4 py-3 font-body text-16 text-ink placeholder:text-muted outline-none focus-visible:ring-2 focus-visible:ring-accent";
-
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("loading");
     setErrorKey(null);
-
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -69,115 +69,68 @@ export default function Contact() {
     }
   }
 
-  const phoneValue = t("phone-value");
-  const viberValue = t("viber-value");
-  const bookUrl = t("book-url");
-  const hasPhone = phoneValue && !phoneValue.includes("[ПОПЪЛНИ]");
-  const hasViber = viberValue && !viberValue.includes("[ПОПЪЛНИ]");
-  const hasBook = bookUrl && !bookUrl.includes("[ПОПЪЛНИ]");
-
   const errorText = errorKey
     ? t(`error-${errorKey}`, { defaultValue: t("error-generic") })
     : null;
 
+  const perks = [
+    { title: t("perk-call-title"), text: t("perk-call-desc") },
+    { title: t("perk-response-title"), text: t("perk-response-desc") },
+    { title: t("perk-commit-title"), text: t("perk-commit-desc") },
+  ];
+
   return (
-    <section id="kontakt" className="relative py-16 md:py-24 scroll-mt-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
-          <div className="lg:col-span-2">
-            <p className="font-mono text-14 uppercase tracking-[0.08em] text-muted">
-              {t("badge")}
-            </p>
-            <h2 className="mt-3 font-display font-bold tracking-[-0.02em] text-ink text-[clamp(28px,5vw,52px)]">
-              {t("headline")}
-            </h2>
-            <p className="mt-4 font-body text-16 text-ink leading-relaxed max-w-[68ch]">
-              {t("subheadline")}
-            </p>
+    <section
+      id="contact"
+      className="relative scroll-mt-28 overflow-hidden bg-[var(--paper)] px-[clamp(16px,3vw,36px)] py-[clamp(64px,9vw,112px)]"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(720px_circle_at_90%_20%,color-mix(in_srgb,var(--decal)_18%,transparent),transparent_58%)]"
+      />
+      <div className="relative mx-auto grid max-w-[1280px] grid-cols-1 items-start gap-8 min-[900px]:grid-cols-[1.1fr_0.9fr]">
+        <Reveal>
+          <h2 className="font-vinyl m-0 max-w-[16ch] text-[clamp(36px,6vw,72px)] text-[var(--vinyl)]">
+            {t("headline-lead")}{" "}
+            <span className="text-[var(--decal)]">{t("headline-accent")}</span>
+          </h2>
+          <p className="mt-4 max-w-[44ch] text-[clamp(16px,1.4vw,19px)] font-semibold text-[var(--vinyl)]">
+            {t("subheadline")}
+          </p>
+          <ul className="mt-8 mb-0 flex list-none flex-col gap-4 p-0">
+            {perks.map((perk) => (
+              <li key={perk.title}>
+                <div className="font-vinyl text-[clamp(22px,2.2vw,30px)] text-[var(--vinyl)]">{perk.title}</div>
+                <div className="text-[15px] text-[var(--vinyl)]/80">{perk.text}</div>
+              </li>
+            ))}
+          </ul>
+          <a
+            href={`mailto:${PUBLIC_EMAIL}`}
+            className="mt-8 inline-block font-hand text-[15px] text-[var(--vinyl)] underline decoration-[var(--decal)] decoration-2 underline-offset-4"
+          >
+            {PUBLIC_EMAIL}
+          </a>
+        </Reveal>
 
-            <ul className="mt-8 space-y-4">
-              <li>
-                <p className="font-body text-16 font-semibold text-ink">{t("perk-call-title")}</p>
-                <p className="font-body text-16 text-muted">{t("perk-call-desc")}</p>
-              </li>
-              <li>
-                <p className="font-body text-16 font-semibold text-ink">{t("perk-response-title")}</p>
-                <p className="font-body text-16 text-muted">{t("perk-response-desc")}</p>
-              </li>
-              <li>
-                <p className="font-body text-16 font-semibold text-ink">{t("perk-commit-title")}</p>
-                <p className="font-body text-16 text-muted">{t("perk-commit-desc")}</p>
-              </li>
-            </ul>
-
-            <div className="mt-10 space-y-3 font-body text-16">
-              {hasPhone ? (
-                <p>
-                  <span className="font-mono text-[12px] uppercase tracking-[0.08em] text-muted block">
-                    {t("aside-phone")}
-                  </span>
-                  <a href={`tel:${phoneValue.replace(/\s/g, "")}`} className="text-accent underline-offset-2 hover:underline">
-                    {phoneValue}
-                  </a>
-                </p>
-              ) : null}
-              {hasViber ? (
-                <p>
-                  <span className="font-mono text-[12px] uppercase tracking-[0.08em] text-muted block">
-                    {t("aside-viber")}
-                  </span>
-                  <a href={`viber://chat?number=${viberValue.replace(/\s/g, "")}`} className="text-accent underline-offset-2 hover:underline">
-                    {viberValue}
-                  </a>
-                </p>
-              ) : null}
-              <p>
-                <span className="font-mono text-[12px] uppercase tracking-[0.08em] text-muted block">
-                  {t("aside-email")}
-                </span>
-                <a href={`mailto:${PUBLIC_EMAIL}`} className="text-accent underline-offset-2 hover:underline">
-                  {PUBLIC_EMAIL}
-                </a>
-              </p>
-              {hasBook ? (
-                <p>
-                  <a
-                    href={bookUrl}
-                    className="inline-flex items-center justify-center mt-2 px-6 py-3 font-body text-16 font-medium border border-edge text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                  >
-                    {t("aside-book")}
-                  </a>
-                </p>
-              ) : null}
+        <Reveal delay={120} className="relative border-t-[6px] border-[var(--sticker)] bg-white p-[clamp(22px,3vw,32px)] text-[var(--vinyl)] shadow-[8px_16px_0_rgb(11_31_58_/_0.12)]">
+          {status === "success" ? (
+            <div className="flex flex-col gap-3 py-6">
+              <h3 className="font-vinyl m-0 text-[clamp(22px,2.2vw,30px)]">{t("success-title")}</h3>
+              <p className="m-0 text-[15px] leading-relaxed text-[var(--vinyl)]/75">{t("success-desc")}</p>
+              <button
+                type="button"
+                onClick={() => setStatus("idle")}
+                className="mt-2 self-start bg-[var(--decal)] px-5 py-3 text-[15px] font-extrabold text-white"
+              >
+                {t("success-again")}
+              </button>
             </div>
-          </div>
-
-          <div className="lg:col-span-3">
-            {status === "success" ? (
-              <div className="border border-edge p-8">
-                <h3 className="font-display text-22 font-semibold tracking-[-0.02em] text-ink">
-                  {t("success-title")}
-                </h3>
-                <p className="mt-3 font-body text-16 text-ink leading-relaxed max-w-[68ch]">
-                  {t("success-desc")}
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setStatus("idle")}
-                  className="mt-6 font-body text-16 text-accent underline-offset-2 hover:underline"
-                >
-                  {t("success-again")}
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="relative flex flex-col gap-5" noValidate>
-                <div>
-                  <h3 className="font-display text-22 font-semibold tracking-[-0.02em] text-ink">
-                    {t("form-title")}
-                  </h3>
-                  <p className="mt-1 font-body text-16 text-muted">{t("form-subtitle")}</p>
-                </div>
-
+          ) : (
+            <>
+              <h3 className="font-vinyl m-0 text-[clamp(22px,2.2vw,30px)]">{t("form-title")}</h3>
+              <p className="mt-1 mb-5 text-[15px] text-[var(--vinyl)]/80">{t("form-subtitle")}</p>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3.5" noValidate>
                 <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
                   <label htmlFor="website">{t("label-name")}</label>
                   <input
@@ -189,12 +142,9 @@ export default function Contact() {
                     autoComplete="off"
                   />
                 </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="contact-name" className="font-body text-14 text-ink">
-                      {t("label-name")}
-                    </label>
+                <div className="grid grid-cols-1 gap-3.5 min-[520px]:grid-cols-2">
+                  <label className="flex flex-col gap-1" htmlFor="contact-name">
+                    <span className="text-[13px] font-bold">{t("label-name")}</span>
                     <input
                       id="contact-name"
                       name="name"
@@ -204,13 +154,11 @@ export default function Contact() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder={t("placeholder-name")}
-                      className={inputClass}
+                      className={fieldClass}
                     />
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="contact-email" className="font-body text-14 text-ink">
-                      {t("label-email")}
-                    </label>
+                  </label>
+                  <label className="flex flex-col gap-1" htmlFor="contact-email">
+                    <span className="text-[13px] font-bold">{t("label-email")}</span>
                     <input
                       id="contact-email"
                       name="email"
@@ -220,39 +168,33 @@ export default function Contact() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder={t("placeholder-email")}
-                      className={inputClass}
+                      className={fieldClass}
                     />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label htmlFor="contact-phone" className="font-body text-14 text-ink">
-                    {t("label-phone")}
                   </label>
-                  <input
-                    id="contact-phone"
-                    name="phone"
-                    type="tel"
-                    autoComplete="tel"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder={t("placeholder-phone")}
-                    className={inputClass}
-                  />
                 </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="contact-business" className="font-body text-14 text-ink">
-                      {t("label-business")}
-                    </label>
+                <div className="grid grid-cols-1 gap-3.5 min-[520px]:grid-cols-2">
+                  <label className="flex flex-col gap-1" htmlFor="contact-phone">
+                    <span className="text-[13px] font-bold">{t("label-phone")}</span>
+                    <input
+                      id="contact-phone"
+                      name="phone"
+                      type="tel"
+                      autoComplete="tel"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder={t("placeholder-phone")}
+                      className={fieldClass}
+                    />
+                  </label>
+                  <label className="flex flex-col gap-1" htmlFor="contact-business">
+                    <span className="text-[13px] font-bold">{t("label-business")}</span>
                     <select
                       id="contact-business"
                       name="businessType"
                       required
                       value={businessType}
                       onChange={(e) => setBusinessType(e.target.value)}
-                      className={inputClass}
+                      className={`${fieldClass} appearance-none`}
                     >
                       <option value="">{t("business-placeholder")}</option>
                       {businessTypeValues.map((value) => (
@@ -261,46 +203,40 @@ export default function Contact() {
                         </option>
                       ))}
                     </select>
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="contact-budget" className="font-body text-14 text-ink">
-                      {t("label-budget")}
-                    </label>
-                    <select
-                      id="contact-budget"
-                      name="budget"
-                      required
-                      value={budget}
-                      onChange={(e) => setBudget(e.target.value)}
-                      className={inputClass}
-                    >
-                      <option value="">{t("budget-placeholder")}</option>
-                      {budgetValues.map((value) => (
-                        <option key={value} value={value}>
-                          {t(`budget-${value}`)}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label htmlFor="contact-message" className="font-body text-14 text-ink">
-                    {t("label-message")}
                   </label>
+                </div>
+                <label className="flex flex-col gap-1" htmlFor="contact-budget">
+                  <span className="text-[13px] font-bold">{t("label-budget")}</span>
+                  <select
+                    id="contact-budget"
+                    name="budget"
+                    required
+                    value={budget}
+                    onChange={(e) => setBudget(e.target.value)}
+                    className={`${fieldClass} appearance-none`}
+                  >
+                    <option value="">{t("budget-placeholder")}</option>
+                    {budgetValues.map((value) => (
+                      <option key={value} value={value}>
+                        {t(`budget-${value}`)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="flex flex-col gap-1" htmlFor="contact-message">
+                  <span className="text-[13px] font-bold">{t("label-message")}</span>
                   <textarea
                     id="contact-message"
                     name="message"
                     required
-                    rows={5}
+                    rows={4}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder={t("placeholder-message")}
-                    className={`${inputClass} resize-none`}
+                    className={`${fieldClass} resize-y`}
                   />
-                </div>
-
-                <div className="flex items-start gap-3">
+                </label>
+                <label className="flex cursor-pointer items-start gap-2.5" htmlFor="contact-consent">
                   <input
                     id="contact-consent"
                     name="consent"
@@ -308,36 +244,35 @@ export default function Contact() {
                     required
                     checked={consent}
                     onChange={(e) => setConsent(e.target.checked)}
-                    className="mt-1 h-4 w-4 accent-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                    className="mt-0.5 h-[18px] w-[18px] flex-none accent-[var(--decal)]"
                   />
-                  <label htmlFor="contact-consent" className="font-body text-14 text-ink">
+                  <span className="text-[13.5px] leading-snug text-[var(--vinyl)]/80">
                     {t("label-consent")}{" "}
                     <Link
                       href={`/${locale}/poveritelnost`}
-                      className="text-accent underline-offset-2 hover:underline"
+                      className="underline decoration-[var(--decal)] underline-offset-2"
                     >
                       {t("privacy-link")}
                     </Link>
-                  </label>
-                </div>
-
+                    .
+                  </span>
+                </label>
                 {errorText ? (
-                  <p className="font-body text-14 text-ink" role="alert">
+                  <p className="m-0 bg-[var(--burst)]/10 px-3 py-2 text-[15px] text-[var(--burst)]" role="alert">
                     {errorText}
                   </p>
                 ) : null}
-
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="self-start inline-flex items-center justify-center px-6 py-3 font-body text-16 font-medium bg-accent text-white disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  className="mt-1 bg-[var(--decal)] px-6 py-4 text-base font-extrabold uppercase tracking-[0.04em] text-white disabled:opacity-60"
                 >
                   {status === "loading" ? t("sending") : t("submit")}
                 </button>
               </form>
-            )}
-          </div>
-        </div>
+            </>
+          )}
+        </Reveal>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 {
-  "headline": "FAQ",
+  "headline": "Common questions",
+  "subheadline": "The things people ask before we start. If yours isn't here, just write to me.",
   "items": [
     {
       "q": "How fast can we launch?",
@@ -19,4 +20,3 @@
     }
   ]
 }
-
