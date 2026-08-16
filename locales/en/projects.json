@@ -1,17 +1,17 @@
 {
   "headline": "Selected work",
-  "badge": "Recent work",
+  "badge": "Two live sites · not mockups",
+  "stats-label": "Numbers",
   "live": "View live",
   "caseStudy": "Case study",
-  "all": "All projects",
   "items": [
     {
       "slug": "stoykovmed",
       "number": "01",
-      "eyebrow": "Plastic Surgery & Aesthetics",
-      "headline": "Two businesses in one site — clinic and products.",
-      "text": "A patient looking for a procedure and a buyer of the Deflamax product line are two different visitors. I split the flows from the first screen, added online booking, and built the shop beside it.",
-      "stack": ["Shopify", "Booking", "E-commerce"],
+      "eyebrow": "Dietary supplement",
+      "headline": "A site that sells one supplement.",
+      "text": "Dr. Stoykov's site has no services — it has Deflamax. The visitor needs to understand the product and order it, without a clinic menu or appointment booking.",
+      "stack": ["Shopify", "E-commerce"],
       "url": "https://drstoykov.net/"
     },
     {
@@ -19,7 +19,7 @@
       "number": "02",
       "eyebrow": "Clothing store · Lovech",
       "headline": "A site that brings people to the store door.",
-      "text": "The business happens in the physical shop, so one page does one job: what you will find and where the store is. Hours, location and map sit right under the first screen — and the owner changes the collections from a panel.",
+      "text": "There is no online shop, and there will not be one. The site shows what is in the store now, where it is on Targovska 60, and when it is open. The owner updates collections and sales himself — in Bulgarian, without a developer.",
       "stack": ["Next.js", "Admin panel", "Local SEO"],
       "url": "https://www.plenty.bg/"
     }

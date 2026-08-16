@@ -27,18 +27,35 @@ export default async function OgImage({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#F5F5F2",
-          color: "#12141A",
+          backgroundColor: "#cfe6f8",
+          color: "#0b1f3a",
           padding: "72px",
         }}
       >
-        <div style={{ fontSize: 28, letterSpacing: "0.08em", textTransform: "uppercase", color: "#6B6F76" }}>
+        <div
+          style={{
+            fontSize: 22,
+            fontWeight: 800,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: "#1f5fd6",
+          }}
+        >
           {name}
         </div>
-        <div style={{ fontSize: 56, fontWeight: 700, lineHeight: 1.15, maxWidth: 980 }}>
+        <div
+          style={{
+            fontSize: 64,
+            fontWeight: 900,
+            lineHeight: 0.9,
+            letterSpacing: "-0.04em",
+            maxWidth: 980,
+            textTransform: "uppercase",
+          }}
+        >
           {headline}
         </div>
-        <div style={{ fontSize: 24, color: "#1F4DFF" }}>markomoev.com</div>
+        <div style={{ fontSize: 22, fontWeight: 800, color: "#1f5fd6" }}>markomoev.com</div>
       </div>
     ),
     { ...size }

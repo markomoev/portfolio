@@ -5,6 +5,7 @@ import {
   useRef,
   useState,
   type CSSProperties,
+  type HTMLAttributes,
   type ReactNode,
   type Ref,
 } from "react";
@@ -19,7 +20,7 @@ type RevealProps = {
   className?: string;
   style?: CSSProperties;
   as?: RevealTag;
-};
+} & Omit<HTMLAttributes<HTMLElement>, "children" | "style" | "className">;
 
 /**
  * Scroll-in reveal (the `data-reveal` behaviour from the v2 design file).
@@ -36,6 +37,7 @@ export function Reveal({
   className,
   style,
   as: Tag = "div",
+  ...rest
 }: RevealProps) {
   const ref = useRef<HTMLElement>(null);
   const [armed, setArmed] = useState(false);
@@ -79,6 +81,7 @@ export function Reveal({
           ? { ...style, opacity: 0, transform: "translateY(24px)" }
           : style
       }
+      {...rest}
     >
       {children}
     </Tag>

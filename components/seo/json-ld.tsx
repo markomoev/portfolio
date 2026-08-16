@@ -1,8 +1,15 @@
 import faqBg from "@/locales/bg/faq.json";
 import faqEn from "@/locales/en/faq.json";
+import {
+  FACEBOOK_URL,
+  GITHUB_URL,
+  INSTAGRAM_URL,
+  PUBLIC_EMAIL,
+  PUBLIC_PHONE_E164,
+} from "@/lib/public-contact";
 
 const SITE_URL = "https://markomoev.com";
-const EMAIL = "marko.moev.business@gmail.com";
+const SAME_AS = [GITHUB_URL, INSTAGRAM_URL, FACEBOOK_URL];
 
 type FaqFile = { headline: string; items: { q: string; a: string }[] };
 
@@ -18,9 +25,15 @@ export function ProfessionalServiceJsonLd({ locale }: { locale: string }) {
     "@type": "ProfessionalService",
     name,
     url: `${SITE_URL}/${locale}`,
-    email: EMAIL,
+    email: PUBLIC_EMAIL,
+    telephone: PUBLIC_PHONE_E164,
     areaServed: { "@type": "Country", name: "BG" },
-    sameAs: ["https://github.com/markomoev"],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: locale === "en" ? "Sofia" : "София",
+      addressCountry: "BG",
+    },
+    sameAs: SAME_AS,
     description,
   };
 
@@ -38,9 +51,9 @@ export function PersonJsonLd({ locale }: { locale: string }) {
     "@type": "Person",
     name: "Marko Moev",
     url: `${SITE_URL}/${locale}`,
-    email: EMAIL,
+    email: PUBLIC_EMAIL,
     jobTitle: locale === "en" ? "Web developer" : "Уеб разработчик",
-    sameAs: ["https://github.com/markomoev"],
+    sameAs: SAME_AS,
   };
 
   return (

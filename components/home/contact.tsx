@@ -12,7 +12,7 @@ type Status = "idle" | "loading" | "success" | "error";
 const PUBLIC_EMAIL = "marko.moev.business@gmail.com";
 
 const fieldClass =
-  "w-full rounded-none border-2 border-[var(--edge)] bg-white px-3.5 py-3 text-[15px] text-[var(--vinyl)] outline-none placeholder:text-[var(--vinyl)]/40 focus:border-[var(--decal)]";
+  "w-full rounded-none border border-edge bg-white px-3.5 py-3 text-[15px] text-vinyl outline-none placeholder:text-vinyl/40 focus:border-vinyl";
 
 export default function Contact() {
   const { t } = useTranslation("contact");
@@ -82,55 +82,62 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-28 overflow-hidden bg-[var(--paper)] px-[clamp(16px,3vw,36px)] py-[clamp(64px,9vw,112px)]"
+      className="scroll-mt-28 px-[clamp(16px,3vw,36px)] py-[clamp(64px,9vw,112px)]"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(720px_circle_at_90%_20%,color-mix(in_srgb,var(--decal)_18%,transparent),transparent_58%)]"
-      />
-      <div className="relative mx-auto grid max-w-[1280px] grid-cols-1 items-start gap-8 min-[900px]:grid-cols-[1.1fr_0.9fr]">
+      <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-start gap-[clamp(28px,4vw,48px)] min-[900px]:grid-cols-2">
         <Reveal>
-          <h2 className="font-vinyl m-0 max-w-[16ch] text-[clamp(36px,6vw,72px)] text-[var(--vinyl)]">
+          <p className="m-0 inline-block bg-sticker px-3.5 py-1.5 text-[13px] font-extrabold tracking-[0.04em] text-vinyl uppercase">
+            {t("badge")}
+          </p>
+          <h2 className="font-vinyl m-0 mt-[18px] max-w-[16ch] text-[clamp(36px,5.5vw,68px)] leading-[0.9] tracking-[-0.02em] text-vinyl">
             {t("headline-lead")}{" "}
-            <span className="text-[var(--decal)]">{t("headline-accent")}</span>
+            <em className="not-italic text-decal">{t("headline-accent")}</em>
           </h2>
-          <p className="mt-4 max-w-[44ch] text-[clamp(16px,1.4vw,19px)] font-semibold text-[var(--vinyl)]">
+          <p className="mt-[18px] mb-0 max-w-[44ch] text-[clamp(16px,1.4vw,19px)] leading-relaxed text-vinyl/80">
             {t("subheadline")}
           </p>
-          <ul className="mt-8 mb-0 flex list-none flex-col gap-4 p-0">
+          <dl className="mt-8 mb-0 grid gap-[22px]">
             {perks.map((perk) => (
-              <li key={perk.title}>
-                <div className="font-vinyl text-[clamp(22px,2.2vw,30px)] text-[var(--vinyl)]">{perk.title}</div>
-                <div className="text-[15px] text-[var(--vinyl)]/80">{perk.text}</div>
-              </li>
+              <div key={perk.title}>
+                <dt className="m-0 text-[16px] font-extrabold text-vinyl">{perk.title}</dt>
+                <dd className="mt-1 mb-0 text-[15px] leading-relaxed text-vinyl/72">{perk.text}</dd>
+              </div>
             ))}
-          </ul>
-          <a
-            href={`mailto:${PUBLIC_EMAIL}`}
-            className="mt-8 inline-block font-hand text-[15px] text-[var(--vinyl)] underline decoration-[var(--decal)] decoration-2 underline-offset-4"
-          >
-            {PUBLIC_EMAIL}
-          </a>
+          </dl>
+          <p className="mt-7 mb-0 text-[15px] text-vinyl/72">
+            {t("or-email")}{" "}
+            <a
+              href={`mailto:${PUBLIC_EMAIL}`}
+              className="font-bold text-decal underline decoration-sticker decoration-2 underline-offset-4 hover:text-vinyl"
+            >
+              {PUBLIC_EMAIL}
+            </a>
+          </p>
         </Reveal>
 
-        <Reveal delay={120} className="relative border-t-[6px] border-[var(--sticker)] bg-white p-[clamp(22px,3vw,32px)] text-[var(--vinyl)] shadow-[8px_16px_0_rgb(11_31_58_/_0.12)]">
+        <Reveal delay={120} className="relative border border-vinyl/12 bg-white p-[clamp(22px,3vw,32px)] text-vinyl">
+          <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1.5 bg-sticker" />
           {status === "success" ? (
-            <div className="flex flex-col gap-3 py-6">
-              <h3 className="font-vinyl m-0 text-[clamp(22px,2.2vw,30px)]">{t("success-title")}</h3>
-              <p className="m-0 text-[15px] leading-relaxed text-[var(--vinyl)]/75">{t("success-desc")}</p>
+            <div className="py-10 text-center">
+              <h3 className="font-vinyl m-0 text-[clamp(22px,2.2vw,34px)] leading-[0.95] tracking-[-0.02em]">
+                {t("success-title")}
+              </h3>
+              <p className="mt-3 mb-0 text-[15px] leading-relaxed text-vinyl/75">{t("success-desc")}</p>
               <button
                 type="button"
                 onClick={() => setStatus("idle")}
-                className="mt-2 self-start bg-[var(--decal)] px-5 py-3 text-[15px] font-extrabold text-white"
+                className="mt-[22px] cursor-pointer border-0 bg-transparent p-0 text-[15px] font-extrabold text-decal underline underline-offset-4"
               >
                 {t("success-again")}
               </button>
             </div>
           ) : (
             <>
-              <h3 className="font-vinyl m-0 text-[clamp(22px,2.2vw,30px)]">{t("form-title")}</h3>
-              <p className="mt-1 mb-5 text-[15px] text-[var(--vinyl)]/80">{t("form-subtitle")}</p>
-              <form onSubmit={handleSubmit} className="flex flex-col gap-3.5" noValidate>
+              <h3 className="font-vinyl m-0 text-[clamp(22px,2.2vw,30px)] leading-[0.95] tracking-[-0.02em]">
+                {t("form-title")}
+              </h3>
+              <p className="mt-1.5 mb-4 text-[15px] leading-relaxed text-vinyl/70">{t("form-subtitle")}</p>
+              <form onSubmit={handleSubmit} className="grid gap-4" noValidate>
                 <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
                   <label htmlFor="website">{t("label-name")}</label>
                   <input
@@ -246,10 +253,10 @@ export default function Contact() {
                     onChange={(e) => setConsent(e.target.checked)}
                     className="mt-0.5 h-[18px] w-[18px] flex-none accent-[var(--decal)]"
                   />
-                  <span className="text-[13.5px] leading-snug text-[var(--vinyl)]/80">
+                  <span className="text-[13px] leading-snug text-vinyl/80">
                     {t("label-consent")}{" "}
                     <Link
-                      href={`/${locale}/poveritelnost`}
+                      href={`/${locale}/privacy-policy`}
                       className="underline decoration-[var(--decal)] underline-offset-2"
                     >
                       {t("privacy-link")}
@@ -258,14 +265,14 @@ export default function Contact() {
                   </span>
                 </label>
                 {errorText ? (
-                  <p className="m-0 bg-[var(--burst)]/10 px-3 py-2 text-[15px] text-[var(--burst)]" role="alert">
+                  <p className="m-0 bg-burst/10 px-3 py-2 text-[15px] text-burst" role="alert">
                     {errorText}
                   </p>
                 ) : null}
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="mt-1 bg-[var(--decal)] px-6 py-4 text-base font-extrabold uppercase tracking-[0.04em] text-white disabled:opacity-60"
+                  className="mt-1 cursor-pointer border-0 bg-vinyl px-6 py-[15px] text-[13px] font-extrabold tracking-[0.04em] text-white uppercase transition-transform hover:-translate-y-0.5 disabled:opacity-60"
                 >
                   {status === "loading" ? t("sending") : t("submit")}
                 </button>

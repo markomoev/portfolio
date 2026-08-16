@@ -11,7 +11,6 @@ import {
  */
 export const fontDisplay = Sofia_Sans_Extra_Condensed({
   subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
-  weight: ["700", "800", "900"],
   variable: "--font-display",
   display: "swap",
 });

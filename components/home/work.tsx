@@ -17,6 +17,23 @@ type WorkItem = {
   caseStudy?: boolean;
 };
 
+const covers: Record<string, { src: string; alt: { bg: string; en: string } }> = {
+  plenty: {
+    src: "/work/plenty-site.png",
+    alt: {
+      bg: "Началният екран на сайта на Plenty",
+      en: "Plenty homepage",
+    },
+  },
+  stoykovmed: {
+    src: "/work/stoykovmed-site.png",
+    alt: {
+      bg: "Началният екран на сайта на Stoykovmed с продукта Deflamax",
+      en: "Stoykovmed homepage with the Deflamax product",
+    },
+  },
+};
+
 export default function Work() {
   const { t } = useTranslation("projects");
   const params = useParams();
@@ -28,64 +45,70 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="scroll-mt-28 bg-[var(--decal)] px-[clamp(16px,3vw,36px)] py-[clamp(64px,9vw,112px)]"
+      className="scroll-mt-28 px-[clamp(16px,3vw,36px)] py-[clamp(64px,9vw,112px)]"
     >
       <div className="mx-auto max-w-[1280px]">
         <Reveal className="mb-[clamp(32px,5vw,52px)] flex flex-wrap items-end justify-between gap-4">
-          <h2 className="font-vinyl m-0 text-[clamp(40px,7vw,88px)] text-white">
+          <h2 className="font-vinyl m-0 text-[clamp(40px,7vw,88px)] leading-[0.9] tracking-[-0.02em] text-vinyl">
             {t("headline")}
           </h2>
-          <span className="font-hand rotate-[-4deg] text-[15px] font-semibold text-[var(--sticker)]">
+          <span className="pb-2 text-[13px] font-extrabold tracking-[0.08em] text-decal uppercase">
             {t("badge")}
           </span>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-8 min-[900px]:grid-cols-2">
-          {items.map((item, index) => (
+        <div className="grid grid-cols-1 gap-7 min-[900px]:grid-cols-2">
+          {items.map((item, index) => {
+            const cover = covers[item.slug];
+            const coverAlt = cover
+              ? locale === "en"
+                ? cover.alt.en
+                : cover.alt.bg
+              : "";
+
+            return (
             <Reveal
               key={item.slug}
               delay={index * 90}
               as="article"
-              className="relative bg-white p-3 shadow-[6px_14px_0_rgb(11_31_58_/_0.2)]"
-              style={{ transform: index === 1 ? "rotate(1.2deg)" : "rotate(-1deg)" }}
+              className="flex flex-col border border-vinyl/10 bg-white"
             >
-              <div className="relative mb-4 aspect-[4/3] overflow-hidden bg-[var(--glass)]">
-                {item.slug === "plenty" ? (
+              {cover ? (
+                <div className="overflow-hidden border-b border-vinyl/8 bg-vinyl">
                   <Image
-                    src="/work/plenty-phone.png"
-                    alt=""
-                    fill
-                    sizes="(max-width: 900px) 100vw, 50vw"
-                    className="object-cover object-top"
+                    src={cover.src}
+                    alt={coverAlt}
+                    width={1024}
+                    height={819}
+                    className="h-auto w-full"
+                    sizes="(max-width: 900px) 92vw, 620px"
                   />
-                ) : (
-                  <div className="flex h-full items-center justify-center bg-white p-10">
-                    <Image
-                      src="/logos/stoykovmed.png"
-                      alt=""
-                      width={437}
-                      height={123}
-                      className="max-h-16 w-auto object-contain"
-                    />
-                  </div>
-                )}
-              </div>
-              <div className="px-3 pb-4">
-                <p className="m-0 text-[13px] font-extrabold uppercase tracking-[0.08em] text-[var(--decal)]">
+                </div>
+              ) : null}
+              <div className="flex flex-1 flex-col gap-3 p-7">
+                <p className="m-0 text-[13px] font-extrabold tracking-[0.08em] text-decal uppercase">
                   {item.eyebrow}
                 </p>
-                <h3 className="font-vinyl mt-2 text-[clamp(22px,2.2vw,30px)] leading-[0.92] text-[var(--vinyl)]">
+                <h3 className="font-vinyl m-0 text-[clamp(24px,2.2vw,32px)] leading-[0.94] tracking-[-0.02em] text-vinyl">
                   {item.headline}
                 </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-[var(--vinyl)]/75">
-                  {item.text}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-4">
+                <p className="m-0 text-[15px] leading-relaxed text-vinyl/75">{item.text}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {item.stack.map((tag) => (
+                    <span
+                      key={tag}
+                      className="bg-vinyl/7 px-2.5 py-1 text-[13px] font-bold text-vinyl/80"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-auto flex flex-wrap gap-5 pt-4">
                   <a
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[15px] font-extrabold text-[var(--burst)]"
+                    className="inline-flex items-center gap-1 text-[15px] font-extrabold text-burst hover:text-vinyl"
                   >
                     {t("live")}
                     <ArrowUpRight size={16} />
@@ -93,7 +116,7 @@ export default function Work() {
                   {item.caseStudy === false ? null : (
                     <Link
                       href={`/${locale}/proekti/${item.slug}`}
-                      className="text-[15px] font-extrabold text-[var(--vinyl)]"
+                      className="text-[15px] font-extrabold text-vinyl hover:text-decal"
                     >
                       {t("caseStudy")} →
                     </Link>
@@ -101,17 +124,9 @@ export default function Work() {
                 </div>
               </div>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
-
-        <Reveal delay={120} className="mt-10">
-          <Link
-            href={`/${locale}/proekti`}
-            className="font-vinyl text-[22px] text-white underline decoration-[var(--sticker)] decoration-2 underline-offset-4"
-          >
-            {t("all")} →
-          </Link>
-        </Reveal>
       </div>
     </section>
   );

@@ -3,7 +3,9 @@ import TranslationsProvider from "@/components/TranslationProvider";
 import Hero_01 from "@/components/home/hero_01";
 import Marquee from "@/components/home/marquee";
 import Services from "@/components/home/services";
+import Stats from "@/components/home/stats";
 import Work from "@/components/home/work";
+import Reviews from "@/components/home/reviews";
 import About from "@/components/home/about";
 import Process from "@/components/home/process";
 import FAQ from "@/components/home/faq";
@@ -33,7 +35,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <Hero_01 />
         <Marquee />
         <Services />
+        <Stats />
         <Work />
+        <Reviews />
         <About />
         <Process />
         <FAQ />

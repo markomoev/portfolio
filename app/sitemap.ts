@@ -11,9 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const paths = [
     "",
-    "/proekti",
     "/kontakt",
-    "/poveritelnost",
+    "/privacy-policy",
     ...studies.map((study) => `/proekti/${study.slug}`),
   ];
 

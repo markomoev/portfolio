@@ -1,141 +1,144 @@
 import Link from "next/link";
-import { Github, Send } from "lucide-react";
-
-const PUBLIC_EMAIL = "marko.moev.business@gmail.com";
-const GITHUB_URL = "https://github.com/markomoev";
+import { Facebook, Github, Instagram, Mail, Phone } from "lucide-react";
+import {
+  FACEBOOK_URL,
+  GITHUB_URL,
+  INSTAGRAM_URL,
+  PUBLIC_EMAIL,
+  PUBLIC_PHONE_E164,
+  VIBER_URL,
+} from "@/lib/public-contact";
 
 const copyByLocale = {
   bg: {
-    tagline:
-      "Уебсайтове, дизайн и малки системи за твоя бизнес. Базиран в София, работя с клиенти навсякъде.",
-    sections: "Секции",
-    elsewhere: "Другаде",
+    tagline: "Сайтове за местен бизнес. София, България — и за клиенти на английски.",
+    pages: "Страници",
+    contact: "Контакт",
     services: "Услуги",
     work: "Проекти",
     about: "За мен",
-    process: "Процес",
     faq: "Въпроси",
-    projects: "Всички проекти",
-    contact: "Контакт",
-    privacy: "Поверителност",
-    cta: "Да работим заедно",
-    rights: "© 2026 Marko Moev · България",
-    available: "Свободен за проекти",
-    github: "GitHub профил",
+    privacy: "Политика за поверителност",
+    rights: "© 2026 Marko Moev",
     email: "Имейл",
+    phone: "Телефон",
+    viber: "Viber",
+    instagram: "Instagram",
+    facebook: "Facebook",
+    github: "GitHub",
   },
   en: {
-    tagline:
-      "Websites, design and small systems for your business. Based in Sofia, working with clients anywhere.",
-    sections: "Sections",
-    elsewhere: "Elsewhere",
+    tagline: "Websites for local business. Sofia, Bulgaria — and for clients in English.",
+    pages: "Pages",
+    contact: "Contact",
     services: "Services",
     work: "Work",
     about: "About",
-    process: "Process",
     faq: "FAQ",
-    projects: "All projects",
-    contact: "Contact",
     privacy: "Privacy policy",
-    cta: "Let's work together",
-    rights: "© 2026 Marko Moev · Bulgaria",
-    available: "Available for freelance projects",
-    github: "GitHub profile",
+    rights: "© 2026 Marko Moev",
     email: "Email",
+    phone: "Phone",
+    viber: "Viber",
+    instagram: "Instagram",
+    facebook: "Facebook",
+    github: "GitHub",
   },
 } as const;
+
+function ViberIcon({ size = 18 }: { size?: number; strokeWidth?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M6.5 3.5h11A4.5 4.5 0 0 1 22 8v6.2A5.8 5.8 0 0 1 16.2 20H12l-4.5 2.4V20A5.8 5.8 0 0 1 2 14.2V8a4.5 4.5 0 0 1 4.5-4.5Z" />
+      <path d="M8.5 9.2c2.4-1 4.6-1 7 0" />
+      <path d="M9.2 12.4c1.8-.6 3.8-.6 5.6 0" />
+    </svg>
+  );
+}
+
+const iconBtn =
+  "inline-flex h-11 w-11 items-center justify-center text-white/82 transition-colors hover:text-white";
 
 export default function Footer({ locale }: { locale: string }) {
   const copy = locale === "en" ? copyByLocale.en : copyByLocale.bg;
   const home = `/${locale}`;
 
-  const anchors = [
+  const pages = [
     { href: `${home}#services`, label: copy.services },
     { href: `${home}#work`, label: copy.work },
     { href: `${home}#about`, label: copy.about },
-    { href: `${home}#process`, label: copy.process },
     { href: `${home}#faq`, label: copy.faq },
   ];
 
-  const pages = [
-    { href: `${home}/proekti`, label: copy.projects },
-    { href: `${home}/kontakt`, label: copy.contact },
-    { href: `${home}/poveritelnost`, label: copy.privacy },
+  const contacts = [
+    { href: `mailto:${PUBLIC_EMAIL}`, label: copy.email, icon: Mail, external: false },
+    { href: `tel:${PUBLIC_PHONE_E164}`, label: copy.phone, icon: Phone, external: false },
+    { href: VIBER_URL, label: copy.viber, icon: ViberIcon, external: false },
+    { href: INSTAGRAM_URL, label: copy.instagram, icon: Instagram, external: true },
+    { href: FACEBOOK_URL, label: copy.facebook, icon: Facebook, external: true },
+    { href: GITHUB_URL, label: copy.github, icon: Github, external: true },
   ];
 
   return (
-    <footer className="bg-[var(--vinyl)] px-[clamp(16px,3vw,36px)] pb-7 pt-[clamp(40px,5vw,64px)]">
-      <div className="mx-auto max-w-[1280px]">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-8 border-b border-white/20 pb-8">
-          <div>
-            <div className="font-vinyl text-[clamp(22px,2.2vw,30px)] text-white">Marko Moev</div>
-            <p className="mb-0 mt-3 max-w-[34ch] text-[15px] leading-relaxed text-white/80">
-              {copy.tagline}
-            </p>
-          </div>
-
-          <nav aria-label={copy.sections} className="flex flex-col gap-2.5">
-            <span className="font-hand text-[15px] text-[var(--sticker)]">{copy.sections}</span>
-            {anchors.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-[15px] text-white/90 hover:text-[var(--sticker)]"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          <nav aria-label={copy.projects} className="flex flex-col gap-2.5">
-            <span className="font-hand text-[15px] text-[var(--sticker)]">
-              {locale === "en" ? "Pages" : "Страници"}
-            </span>
-            {pages.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-[15px] text-white/90 hover:text-[var(--sticker)]"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="flex flex-col gap-3">
-            <span className="font-hand text-[15px] text-[var(--sticker)]">{copy.elsewhere}</span>
-            <div className="flex flex-wrap gap-2.5">
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={copy.github}
-                className="flex h-11 w-11 items-center justify-center border-2 border-white/40 text-white hover:border-[var(--sticker)] hover:text-[var(--sticker)]"
-              >
-                <Github size={18} />
-              </a>
-              <a
-                href={`mailto:${PUBLIC_EMAIL}`}
-                aria-label={copy.email}
-                className="flex h-11 w-11 items-center justify-center border-2 border-white/40 text-white hover:border-[var(--sticker)] hover:text-[var(--sticker)]"
-              >
-                <Send size={18} />
-              </a>
-            </div>
-            <a
-              href={`${home}#contact`}
-              className="mt-1 inline-flex items-center justify-center bg-[var(--decal)] px-5 py-3.5 text-[15px] font-extrabold uppercase text-white"
-            >
-              {copy.cta}
-            </a>
-          </div>
+    <footer className="bg-vinyl px-[clamp(16px,3vw,36px)] pt-[clamp(48px,7vw,72px)] pb-10 text-white">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-start gap-8 min-[700px]:grid-cols-3">
+        <div>
+          <p className="font-vinyl m-0 text-[clamp(22px,2.2vw,30px)] leading-none tracking-[-0.02em] text-white">
+            Marko Moev
+          </p>
+          <p className="mt-3 mb-0 max-w-[30ch] text-[15px] leading-relaxed text-white/70">{copy.tagline}</p>
         </div>
-
-        <div className="flex flex-wrap justify-between gap-3 pt-5 text-[13px] font-semibold text-white/70">
-          <span>{copy.rights}</span>
-          <span>{copy.available}</span>
+        <div>
+          <p className="m-0 text-[13px] font-extrabold tracking-[0.08em] text-white/55 uppercase">{copy.pages}</p>
+          <ul className="mt-3.5 mb-0 grid list-none gap-2 p-0">
+            {pages.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="text-[15px] text-white/82 hover:text-white">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="m-0 text-[13px] font-extrabold tracking-[0.08em] text-white/55 uppercase">{copy.contact}</p>
+          <ul className="mt-3.5 mb-0 flex list-none flex-wrap gap-2 p-0">
+            {contacts.map((item) => {
+              const Icon = item.icon;
+              return (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    aria-label={item.label}
+                    className={iconBtn}
+                    {...(item.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                  >
+                    <Icon size={18} strokeWidth={2.2} />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
+      <p className="mx-auto mt-10 max-w-[1280px] border-t border-white/15 pt-5 text-[13px] tracking-[0.04em] text-white/50">
+        {copy.rights} ·{" "}
+        <Link href={`${home}/privacy-policy`} className="text-white/50 hover:text-white">
+          {copy.privacy}
+        </Link>
+      </p>
     </footer>
   );
 }

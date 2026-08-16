@@ -2,8 +2,12 @@
   "headline": "About me",
   "image-alt": "Marko Moev",
   "bio": [
-    "I'm Marko Moev. I live in Sofia, Bulgaria, and I build websites for businesses with customers on the street — clinics, shops, salons, services.",
-    "I taught myself by making sites for real people around me: they needed to show up on Google, and a phone number you can actually find.",
-    "We work together, launch the site, and it stays in your name — domain, hosting, code."
-  ]
+    "I'm Marko Moev.",
+    "I build websites for small businesses in Sofia — clinics, shops, salons, services. Businesses where the customer eventually has to walk through the door or pick up the phone.",
+    "I taught myself by making sites for real businesses, not exercises. The requirements there were simple and very specific: the site had to show up on Google, and the phone number had to be findable in two seconds, without scrolling and without hunting. If those two things don't work, nothing else matters.",
+    "I've approached it the same way since — a fast site, readable on a phone, with a clear statement of what you do, where you are, and how to reach you. No templates that look like everyone else's, and no features you won't use."
+  ],
+  "bio-close-before": "We work together through the whole process. I show you progress before it's final, so there are no surprises at the end. After we launch, everything stays in ",
+  "bio-close-accent": "your name",
+  "bio-close-after": " — domain, hosting, code. The access is yours, and if you ever decide to work with someone else, they just pick up from there."
 }

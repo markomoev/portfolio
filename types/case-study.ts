@@ -10,6 +10,8 @@ export type CaseStudy = {
   problem: Localized;
   decisions: { what: Localized; why: Localized }[];
   outcome: Localized;
+  facts?: { label: Localized; value: Localized }[];
+  onSite?: Localized[];
   media: { src: string; alt: Localized; caption: Localized }[];
   stack: string[];
   testimonial?: { quote: Localized; author: string; role: Localized };

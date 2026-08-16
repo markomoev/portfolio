@@ -31,8 +31,8 @@ The owner-run admin panel (“a website you can change yourself”) is **in prog
 ## Operating Context
 
 - Live marketing site, default language Bulgarian (`/bg`), English at `/en`. Default and `x-default` are Bulgarian.
-- Home is a single long page: hero, services, work, about, process, FAQ, contact. Separate routes: `/proekti` (work index), `/proekti/[slug]` (case study), `/kontakt`, `/poveritelnost`.
-- Enquiry goes through the contact form to email, or directly to `marko.moev.business@gmail.com`. Phone, Viber, and a booking URL are **omitted** until real values are supplied.
+- Home is a single long page: hero, services, work, reviews, about, process, FAQ, contact. Separate routes: `/proekti/[slug]` (case study), `/kontakt`, `/privacy-policy`.
+- Enquiry goes through the contact form to email, phone, Viber, or directly to `marko.moev.business@gmail.com`. A booking URL is **omitted** until a real value is supplied.
 - Based in Sofia, Bulgaria; works nationwide and with remote English-speaking clients.
 - Client work is handed off so the owner can run hosting, domain, and repository in their own name.
 - Stack in this repo (not a product claim on the marketing site): Next.js App Router, TypeScript, Tailwind, i18n (`bg` / `en`), deployed on Vercel.
@@ -59,18 +59,18 @@ The owner-run admin panel (“a website you can change yourself”) is **in prog
 
 - Admin panel / CMS as an included, shipped feature. Coming-soon is allowed.
 - Public prices. Unused Fiverr-style package tiers in locale files are not product truth.
-- Phone, Viber, or calendar booking until real values replace the placeholders.
+- Calendar booking until a real URL replaces the placeholder.
 - Invented clients, testimonials, metrics, or case-study outcomes.
 
 **Open**
 
-- Phone number, Viber, and booking URL.
+- Booking URL.
 - Remaining case-study fields still marked `[ПОПЪЛНИ]` (years, durations, some problems/outcomes, extra Plenty decisions).
 - No product-specific accessibility standard was set.
 
 ## Brand Commitments
 
-- Name: **Marko Moev**. Site: markomoev.com. Email: `marko.moev.business@gmail.com`. GitHub: [github.com/markomoev](https://github.com/markomoev).
+- Name: **Marko Moev**. Site: markomoev.com. Email: `marko.moev.business@gmail.com`. Phone: `+359 877 418 916`. GitHub: [github.com/markomoev](https://github.com/markomoev). Instagram: [instagram.com/markomoev](https://www.instagram.com/markomoev/). Facebook: [facebook.com/marko.moev.9](https://www.facebook.com/marko.moev.9/).
 - Voice: first person, direct, no jargon. Bulgarian is the primary voice; English matches it rather than switching to a tech-portfolio register.
 - Do not reposition the site as a developer resume or hiring portfolio.
 
@@ -78,8 +78,8 @@ The owner-run admin panel (“a website you can change yourself”) is **in prog
 
 Real and usable:
 
-- **Stoykovmed** — live at [drstoykov.net](https://drstoykov.net/). Plastic surgery and aesthetics practice plus Deflamax products; split visitor flows, online booking, shop. Testimonial from Dr. Martin Stoykov (business owner).
-- **Plenty** — live at [plenty.bg](https://www.plenty.bg/). Clothing store in Lovech; the site’s job is to bring people to the physical shop. No testimonial on file.
+- **Stoykovmed** — live at [drstoykov.net](https://drstoykov.net/). One product: the Deflamax supplement. No clinic, services, or booking on the site. Shopify shop. Testimonial from Dr. Martin Stoykov (business owner).
+- **Plenty** — live at [plenty.bg](https://www.plenty.bg/). Physical clothing shop in Lovech (60 Targovska Street). The site is a storefront to the shop, with no e-commerce. The owner updates collections, sales, and notices from a Bulgarian admin panel with templates. Testimonial from Momchil (owner), attributed by first name only.
 - Photos: `public/photos/portrait.JPG`, `public/photos/wide.JPG`. Work stills: `public/work/plenty-phone.png` (and related). Logos: `public/logos/stoykovmed.png`.
 - Privacy policy page exists and is linked from the contact form.
 

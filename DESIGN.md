@@ -199,7 +199,7 @@ A closed set: one sky, one vinyl, one indigo. Yellow and red are marks, never fi
 
 The page is a stack of full-bleed bands, not a single max-width column with cards. Hero and fascia use a 1440px inner; content bands use 1280px; FAQ narrows to 860px. Horizontal gutter is `clamp(16px, 3vw, 36px)`. Vertical section padding is `clamp(64px, 9vw, 112px)`. Anchor offset is 7rem (`scroll-mt-28`).
 
-Band rhythm: glass hero → a white marquee rule → glass services → glass work → glass about → a vinyl process band → glass FAQ → glass contact → vinyl footer. One navy rest; do not stack two filled bands.
+Band rhythm: glass hero → a white marquee rule → glass services → glass work → glass reviews → glass about → a vinyl process band → glass FAQ → glass contact → vinyl footer. One navy rest; do not stack two filled bands.
 
 The first viewport is a storefront without a photograph: glass field, vinyl headline left, Plenty phone right, vinyl CTA, a middot promise line, sill with city and available. Below the fold, type sits in 1- or 2- or 3-column grids (800px for services/process, 900px for work/about/contact/nav). Grids do not rotate sheets.
 
@@ -238,7 +238,7 @@ Materials first: a control is vinyl type or the brass fascia pill — not a gene
 - **Shape:** Square-cut (`0`) for shop actions; full pill only in the fascia.
 - **Sticker pill (fascia):** Brass fill, vinyl 13px extrabold uppercase, `10px 20px`, tracking 0.04em. Hover lifts 2px. Used once in the desktop nav.
 - **Vinyl submit:** Navy fill, white 13px extrabold uppercase, `14px 24px`, square. Hero, form, footer, and mobile menu share this voice. Disabled drops to 60% opacity.
-- **Ghost / text:** Vinyl 15px for “live site” and “case study”; vinyl headline underline with a 1px vinyl decoration for “all work.”
+- **Ghost / text:** Vinyl 15px for “live site” and “case study.”
 
 ### Cards / Containers
 - **Corner Style:** Square-cut (`0`)
@@ -255,7 +255,7 @@ Materials first: a control is vinyl type or the brass fascia pill — not a gene
 ### Navigation
 - **Fascia:** Fixed, transparent on home, glass at 92% with a 1px edge hairline on inner pages. Wordmark is vinyl display `clamp(22px, 2.2vw, 28px)`. Links are 15px semibold vinyl at 80%, full color on hover. Break at 900px.
 - **Mobile sheet:** White, 28px radius, 20px inset, vinyl 28px display links divided by edge hairlines, vinyl square for the call.
-- **Footer:** Vinyl band. Column titles in hand at white/55. Links white at 80%, full white on hover. Icon buttons are 44px square with a 1px white/40 stroke.
+- **Footer:** Vinyl band. Column titles in hand at white/55. Links white at 80%, full white on hover. Contact icons are 44px squares with no stroke.
 
 ### Marquee
 White band, 1px edge top and bottom, vinyl display at 80% `clamp(20px, 2.4vw, 28px)`, 8px brass diamonds rotated 45deg. Scrolls 34s linear; frozen when motion is reduced.
