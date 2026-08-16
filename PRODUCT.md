@@ -31,7 +31,7 @@ The owner-run admin panel (“a website you can change yourself”) is **in prog
 ## Operating Context
 
 - Live marketing site, default language Bulgarian (`/bg`), English at `/en`. Default and `x-default` are Bulgarian.
-- Home is a single long page: hero, services, work, reviews, about, process, FAQ, contact. Separate routes: `/proekti/[slug]` (case study), `/kontakt`, `/privacy-policy`.
+- Home is a single long page: hero, services, work, reviews, about, process, FAQ, contact. Separate routes: `/projects/[slug]` (case study), `/kontakt`, `/privacy-policy`.
 - Enquiry goes through the contact form to email, phone, Viber, or directly to `marko.moev.business@gmail.com`. A booking URL is **omitted** until a real value is supplied.
 - Based in Sofia, Bulgaria; works nationwide and with remote English-speaking clients.
 - Client work is handed off so the owner can run hosting, domain, and repository in their own name.

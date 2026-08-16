@@ -20,7 +20,7 @@ export default function CaseStudyCard({
     industry,
     study.year > 0 ? String(study.year) : "",
   ].filter((part) => part && part !== "[ПОПЪЛНИ]");
-  const href = `/${locale}/proekti/${study.slug}`;
+  const href = `/${locale}/projects/${study.slug}`;
   const cta = locale === "en" ? "See the full project" : "Виж целия проект";
   const alt = image
     ? loc(image.alt, locale).includes("[ПОПЪЛНИ]")
@@ -42,7 +42,7 @@ export default function CaseStudyCard({
           />
         ) : null}
       </div>
-      <p className="mt-4 font-mono text-[12px] uppercase tracking-[0.08em] text-muted">
+      <p className="mt-4 font-mono text-[13px] uppercase tracking-[0.08em] text-muted">
         {metaParts.join(" · ")}
       </p>
       <h3 className="mt-2 font-display text-22 font-semibold tracking-[-0.02em] text-ink">

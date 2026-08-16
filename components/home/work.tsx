@@ -115,7 +115,7 @@ export default function Work() {
                   </a>
                   {item.caseStudy === false ? null : (
                     <Link
-                      href={`/${locale}/proekti/${item.slug}`}
+                      href={`/${locale}/projects/${item.slug}`}
                       className="text-[15px] font-extrabold text-vinyl hover:text-decal"
                     >
                       {t("caseStudy")} →

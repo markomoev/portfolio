@@ -93,7 +93,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-full px-3.5 py-2 text-[15px] font-semibold text-vinyl/80 transition-colors hover:bg-decal/10 hover:text-vinyl"
+                className="px-3.5 py-2 text-[15px] font-semibold text-vinyl/80 transition-colors hover:bg-decal/10 hover:text-vinyl"
               >
                 {link.label}
               </a>
@@ -102,13 +102,13 @@ export default function Navbar() {
               type="button"
               onClick={switchLocale}
               aria-label={currentLocale === "en" ? t("nav-switch-bg") : t("nav-switch-en")}
-              className="rounded-full px-3 py-2 text-[13px] font-extrabold text-vinyl"
+              className="px-3 py-2 text-[13px] font-extrabold text-vinyl"
             >
               {otherLocaleLabel}
             </button>
             <a
               href={`${home}#contact`}
-              className="ml-2 inline-flex items-center rounded-full bg-sticker px-5 py-2.5 text-[13px] font-extrabold tracking-[0.04em] text-vinyl uppercase transition-transform hover:-translate-y-0.5"
+              className="ml-2 inline-flex items-center bg-sticker px-5 py-2.5 text-[13px] font-extrabold tracking-[0.04em] text-vinyl uppercase transition-transform hover:-translate-y-0.5"
             >
               {t("cta_primary")}
             </a>
@@ -121,7 +121,7 @@ export default function Navbar() {
             aria-label={t("nav-menu")}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
-            className="ml-auto flex h-11 w-11 items-center justify-center rounded-full bg-sticker text-vinyl min-[900px]:hidden"
+            className="ml-auto flex h-11 w-11 items-center justify-center bg-sticker text-vinyl min-[900px]:hidden"
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -147,7 +147,7 @@ export default function Navbar() {
               initial={reducedMotion ? false : { y: -12, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={reducedMotion ? undefined : { y: -12, opacity: 0 }}
-              className="absolute inset-x-3 top-3 flex max-h-[calc(100dvh-1.5rem)] flex-col overflow-y-auto rounded-[28px] bg-white p-5 shadow-[0_18px_40px_rgb(11_31_58_/_0.28)]"
+              className="absolute inset-x-3 top-3 flex max-h-[calc(100dvh-1.5rem)] flex-col overflow-y-auto bg-white p-5 shadow-[0_18px_40px_rgb(11_31_58_/_0.28)]"
             >
               <div className="flex items-center justify-between pb-3">
                 <span className="font-vinyl text-[22px] text-vinyl">Marko Moev</span>
@@ -155,7 +155,7 @@ export default function Navbar() {
                   type="button"
                   onClick={() => setMenuOpen(false)}
                   aria-label={t("nav-close")}
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-sticker text-vinyl"
+                  className="flex h-11 w-11 items-center justify-center bg-sticker text-vinyl"
                 >
                   <X size={18} />
                 </button>
@@ -174,7 +174,7 @@ export default function Navbar() {
               <a
                 href={`${home}#contact`}
                 onClick={() => setMenuOpen(false)}
-                className="mt-4 flex items-center justify-center rounded-full bg-sticker py-4 text-[16px] font-extrabold text-vinyl uppercase"
+                className="mt-4 flex items-center justify-center bg-sticker py-4 text-[16px] font-extrabold text-vinyl uppercase"
               >
                 {t("cta_primary")}
               </a>
@@ -188,7 +188,7 @@ export default function Navbar() {
                     setMenuOpen(false);
                     switchLocale();
                   }}
-                  className="rounded-full border border-vinyl px-4 py-2 text-[13px] font-extrabold"
+                  className="border border-vinyl px-4 py-2 text-[13px] font-extrabold"
                 >
                   {otherLocaleLabel}
                 </button>

@@ -34,7 +34,7 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-[clamp(28px,4vw,56px)] px-[clamp(16px,3vw,36px)] min-[900px]:grid-cols-2">
         <div>
-          <p className="m-0 inline-flex items-center gap-2.5 rounded-full bg-decal py-[7px] pr-3.5 pl-[11px] text-[13px] font-extrabold tracking-[0.08em] text-white uppercase">
+          <p className="m-0 inline-flex items-center gap-2.5 bg-decal py-[7px] pr-3.5 pl-[11px] text-[13px] font-extrabold tracking-[0.04em] text-white">
             <span className="relative inline-flex h-2 w-2">
               <span className="absolute inset-0 animate-mm-ping rounded-full bg-white/75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
@@ -73,14 +73,14 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="inline-flex items-center gap-2.5 rounded-full bg-decal px-[26px] py-[15px] text-[15px] font-extrabold text-white shadow-[0_10px_24px_rgb(31_95_214_/_0.28)] transition-[transform,box-shadow] hover:-translate-y-[3px] hover:shadow-[0_16px_32px_rgb(31_95_214_/_0.34)]"
+              className="inline-flex items-center gap-2.5 bg-decal px-[26px] py-[15px] text-[15px] font-extrabold text-white shadow-[0_10px_24px_rgb(31_95_214_/_0.28)] transition-[transform,box-shadow] hover:-translate-y-[3px] hover:shadow-[0_16px_32px_rgb(31_95_214_/_0.34)]"
             >
               {t("cta_primary")}
               <ArrowRight size={16} />
             </a>
             <a
               href="#work"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-decal bg-decal/8 px-6 py-[13px] text-[15px] font-extrabold text-decal transition-transform hover:-translate-y-[3px] hover:bg-decal/16"
+              className="inline-flex items-center gap-2 border-2 border-decal bg-decal/8 px-6 py-[13px] text-[15px] font-extrabold text-decal transition-transform hover:-translate-y-[3px] hover:bg-decal/16"
             >
               {t("cta_secondary")}
             </a>

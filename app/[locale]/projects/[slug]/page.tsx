@@ -49,17 +49,17 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
-      canonical: `${SITE_URL}/${locale}/proekti/${slug}`,
+      canonical: `${SITE_URL}/${locale}/projects/${slug}`,
       languages: {
-        bg: `${SITE_URL}/bg/proekti/${slug}`,
-        en: `${SITE_URL}/en/proekti/${slug}`,
-        "x-default": `${SITE_URL}/bg/proekti/${slug}`,
+        bg: `${SITE_URL}/bg/projects/${slug}`,
+        en: `${SITE_URL}/en/projects/${slug}`,
+        "x-default": `${SITE_URL}/bg/projects/${slug}`,
       },
     },
     openGraph: {
       title,
       description,
-      url: `${SITE_URL}/${locale}/proekti/${slug}`,
+      url: `${SITE_URL}/${locale}/projects/${slug}`,
       images: ogImage ? [{ url: ogImage }] : undefined,
     },
   };
@@ -123,7 +123,7 @@ export default async function CaseStudyPage({
         "@type": "ListItem",
         position: 2,
         name: study.client.name,
-        item: `${SITE_URL}/${locale}/proekti/${study.slug}`,
+        item: `${SITE_URL}/${locale}/projects/${study.slug}`,
       },
     ],
   };

@@ -12,6 +12,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/:locale(bg|en)/proekti/:slug",
+        destination: "/:locale/projects/:slug",
+        permanent: true,
+      },
+      {
+        source: "/:locale(bg|en)/projects",
+        destination: "/:locale",
+        permanent: true,
+      },
+      {
         source: "/:locale(bg|en)/poveritelnost",
         destination: "/:locale/privacy-policy",
         permanent: true,

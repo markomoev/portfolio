@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/kontakt",
     "/privacy-policy",
-    ...studies.map((study) => `/proekti/${study.slug}`),
+    ...studies.map((study) => `/projects/${study.slug}`),
   ];
 
   const localized: MetadataRoute.Sitemap = locales.flatMap((locale) =>
