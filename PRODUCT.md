@@ -33,7 +33,7 @@ The owner-run admin panel (“a website you can change yourself”) is **in prog
 - Live marketing site, default language Bulgarian (`/bg`), English at `/en`. Default and `x-default` are Bulgarian.
 - Home is a single long page: hero, services, work, about, process, FAQ, contact. Separate routes: `/proekti` (work index), `/proekti/[slug]` (case study), `/kontakt`, `/poveritelnost`.
 - Enquiry goes through the contact form to email, or directly to `marko.moev.business@gmail.com`. Phone, Viber, and a booking URL are **omitted** until real values are supplied.
-- Based in Lovech, Bulgaria; works nationwide and with remote English-speaking clients.
+- Based in Sofia, Bulgaria; works nationwide and with remote English-speaking clients.
 - Client work is handed off so the owner can run hosting, domain, and repository in their own name.
 - Stack in this repo (not a product claim on the marketing site): Next.js App Router, TypeScript, Tailwind, i18n (`bg` / `en`), deployed on Vercel.
 

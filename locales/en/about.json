@@ -1,22 +1,9 @@
 {
-  "headline-1": "Why businesses",
-  "headline-2": "trust me",
-  "subheadline": "I don't just write code; I build solutions that drive business growth. My approach combines technical expertise with a deep understanding of product development.",
-  "image-alt": "Working on a client project",
-  "badge-title": "Client Focused",
-  "badge-sub": "Dedicated to Your Growth",
-  "items": [
-    {
-      "title": "Clear Communication",
-      "text": "I keep you in the loop at every stage. No technical jargon, just clear updates on progress and milestones."
-    },
-    {
-      "title": "Uncompromising Quality",
-      "text": "I write clean, maintainable code that scales. Your product will be robust, secure, and ready for future growth."
-    },
-    {
-      "title": "On-Time Delivery",
-      "text": "I respect deadlines. You can count on me to deliver features when I say I will, helping you plan your launch with confidence."
-    }
+  "headline": "About me",
+  "image-alt": "Marko Moev",
+  "bio": [
+    "I'm Marko Moev. I live in Sofia, Bulgaria, and I build websites for businesses with customers on the street — clinics, shops, salons, services.",
+    "I taught myself by making sites for real people around me: they needed to show up on Google, and a phone number you can actually find.",
+    "We work together, launch the site, and it stays in your name — domain, hosting, code."
   ]
 }

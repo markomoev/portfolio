@@ -11,7 +11,7 @@ export function ProfessionalServiceJsonLd({ locale }: { locale: string }) {
   const description =
     locale === "en"
       ? "Websites for your business in Bulgaria — fast, findable on Google, at a fixed price."
-      : "Уебсайтове за Вашия бизнес в България — бързи, намираеми в Google, с фиксирана цена.";
+      : "Уебсайтове за твоя бизнес в България — бързи, намираеми в Google, с фиксирана цена.";
 
   const data = {
     "@context": "https://schema.org",

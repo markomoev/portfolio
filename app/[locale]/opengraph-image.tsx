@@ -11,9 +11,7 @@ export default async function OgImage({
 }) {
   const { locale } = await params;
   const title =
-    locale === "en"
-      ? "A website you can change yourself afterwards."
-      : "Сайт, който после можеш сам да променяш.";
+    locale === "en" ? "A website for your business." : "Сайт за твоя бизнес.";
   const name = "Marko Moev";
 
   return new ImageResponse(
@@ -25,18 +23,25 @@ export default async function OgImage({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#F5F5F2",
-          color: "#12141A",
+          backgroundColor: "#cfe6f8",
+          color: "#0b1f3a",
           padding: "72px",
         }}
       >
-        <div style={{ fontSize: 28, letterSpacing: "0.08em", textTransform: "uppercase", color: "#6B6F76" }}>
+        <div
+          style={{
+            fontSize: 28,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            color: "#0b1f3a",
+          }}
+        >
           {name}
         </div>
         <div style={{ fontSize: 64, fontWeight: 700, lineHeight: 1.15, maxWidth: 960 }}>
           {title}
         </div>
-        <div style={{ fontSize: 24, color: "#1F4DFF" }}>markomoev.com</div>
+        <div style={{ fontSize: 24, color: "#1f5fd6" }}>markomoev.com</div>
       </div>
     ),
     { ...size }

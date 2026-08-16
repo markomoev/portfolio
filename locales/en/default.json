@@ -25,7 +25,7 @@
   "sticker-reply": "reply within 24h",
   "sticker-revisions": "30 days of revisions",
   "sticker-code": "the code is yours",
-  "sill": "Lovech · Bulgaria",
+  "sill": "Sofia · Bulgaria",
   "hero-portrait-alt": "Plenty clothing store website on a phone",
   "sticker-focus-title": "Client Focused",
   "sticker-focus-sub": "Dedicated to Your Growth",
@@ -33,7 +33,7 @@
     "Fixed price before we start",
     "30 days free revisions",
     "The code is yours",
-    "Training included"
+    "Reply within 24 hours on working days"
   ],
   "built-with": "Built with",
   "built-with-items": ["Next.js", "React", "TypeScript", "Tailwind", "Shopify", "Vercel"],

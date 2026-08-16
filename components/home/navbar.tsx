@@ -25,6 +25,7 @@ export default function Navbar() {
   const links = [
     { href: `${home}#services`, label: t("nav-services") },
     { href: `${home}#work`, label: t("nav-work") },
+    { href: `${home}#about`, label: t("nav-about") },
     { href: `${home}#process`, label: t("nav-process") },
     { href: `${home}#faq`, label: t("nav-faq") },
   ];
@@ -77,16 +78,9 @@ export default function Navbar() {
 
   const otherLocaleLabel = currentLocale === "en" ? "BG" : "EN";
 
-  const isHome = /^\/(bg|en)\/?$/.test(currentPathname);
-
   return (
     <>
-      <header
-        className={cn(
-          "pointer-events-none fixed inset-x-0 top-0 z-[80]",
-          isHome ? "bg-transparent" : "bg-[var(--glass)]/92 shadow-[0_1px_0_var(--edge)]"
-        )}
-      >
+      <header className="pointer-events-none fixed inset-x-0 top-0 z-[80] bg-paper shadow-[0_1px_0_var(--edge)]">
         <nav
           aria-label={t("nav-primary")}
           className="pointer-events-auto mx-auto flex w-full max-w-[1440px] items-center gap-4 px-[clamp(16px,3vw,36px)] py-5"

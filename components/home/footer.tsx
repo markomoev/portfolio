@@ -7,7 +7,7 @@ const GITHUB_URL = "https://github.com/markomoev";
 const copyByLocale = {
   bg: {
     tagline:
-      "Уебсайтове, дизайн и малки системи за Вашия бизнес. Базиран в България, работя с клиенти навсякъде.",
+      "Уебсайтове, дизайн и малки системи за твоя бизнес. Базиран в София, работя с клиенти навсякъде.",
     sections: "Секции",
     elsewhere: "Другаде",
     services: "Услуги",
@@ -21,12 +21,12 @@ const copyByLocale = {
     cta: "Да работим заедно",
     rights: "© 2026 Marko Moev · България",
     available: "Свободен за проекти",
-    github: "GitHub",
+    github: "GitHub профил",
     email: "Имейл",
   },
   en: {
     tagline:
-      "Websites, design and small systems for your business. Based in Bulgaria, working with clients anywhere.",
+      "Websites, design and small systems for your business. Based in Sofia, working with clients anywhere.",
     sections: "Sections",
     elsewhere: "Elsewhere",
     services: "Services",
@@ -40,7 +40,7 @@ const copyByLocale = {
     cta: "Let's work together",
     rights: "© 2026 Marko Moev · Bulgaria",
     available: "Available for freelance projects",
-    github: "GitHub",
+    github: "GitHub profile",
     email: "Email",
   },
 } as const;

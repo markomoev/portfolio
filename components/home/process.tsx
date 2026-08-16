@@ -3,6 +3,7 @@
 import { useTranslation } from "react-i18next";
 import { Quote, Star } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
+import { cn } from "@/lib/utils";
 
 type Step = { title: string; text: string };
 type Review = { name: string; role: string; review: string; stars: number };
@@ -33,13 +34,21 @@ export default function Process() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-4 min-[800px]:grid-cols-2">
+        <ol className="relative m-0 flex list-none flex-col border-l-2 border-white/25 p-0 pl-6 min-[800px]:flex-row min-[800px]:items-start min-[800px]:gap-5 min-[800px]:border-l-0 min-[800px]:pl-0">
           {steps.map((step, index) => (
             <Reveal
               key={step.title}
               delay={index * 70}
-              className="border-2 border-[var(--neon)]/40 bg-[var(--vinyl)] p-6"
+              as="li"
+              className={cn(
+                "relative pb-8 min-[800px]:flex-1 min-[800px]:pb-0",
+                index % 2 === 1 && "min-[800px]:mt-12"
+              )}
             >
+              <span
+                aria-hidden="true"
+                className="absolute -left-[29px] top-1.5 h-2.5 w-2.5 rounded-full bg-[var(--sticker)] min-[800px]:hidden"
+              />
               <div className="font-hand text-[15px] text-[var(--sticker)]">
                 {t("step-label")} {index + 1}
               </div>
@@ -47,7 +56,7 @@ export default function Process() {
               <p className="mt-2 mb-0 text-[15px] leading-relaxed text-white/70">{step.text}</p>
             </Reveal>
           ))}
-        </div>
+        </ol>
 
         {reviews.length ? (
           <div className="mt-[clamp(36px,5vw,56px)] grid grid-cols-1 gap-6 min-[900px]:grid-cols-2">

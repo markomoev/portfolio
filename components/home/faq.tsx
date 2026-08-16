@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 import { Minus, Plus } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
@@ -66,24 +65,17 @@ export default function FAQ() {
                     </span>
                   </button>
                 </h3>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      id={`faq-panel-${index}`}
-                      role="region"
-                      aria-labelledby={`faq-button-${index}`}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: [0, 0, 0.58, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <p className="mt-0 mb-5 max-w-[62ch] text-[15px] leading-relaxed text-[var(--vinyl)]/80">
-                        {item.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <div
+                  id={`faq-panel-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-button-${index}`}
+                  hidden={!isOpen}
+                  className={isOpen ? "block" : "hidden"}
+                >
+                  <p className="mt-0 mb-5 max-w-[62ch] text-[15px] leading-relaxed text-[var(--vinyl)]/80">
+                    {item.a}
+                  </p>
+                </div>
               </Reveal>
             );
           })}

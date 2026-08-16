@@ -15,8 +15,8 @@ export async function generateMetadata({
   const title = locale === "en" ? "Contact" : "Контакт";
   const description =
     locale === "en"
-      ? "Book a free consultation. Reply within 24 hours on working days."
-      : "Заяви безплатна консултация. Отговор до 24 часа в работни дни.";
+      ? "Book a free consultation. I write back on working days."
+      : "Заяви безплатна консултация. Пиша ти в работен ден.";
 
   return {
     title,

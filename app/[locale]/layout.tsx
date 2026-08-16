@@ -15,9 +15,9 @@ const metaByLocale: Record<
   { title: string; description: string; siteName: string; keywords: string[]; ogLocale: string }
 > = {
   bg: {
-    title: "Marko Moev — уебсайтове за Вашия бизнес",
+    title: "Marko Moev — уебсайтове за твоя бизнес",
     description:
-      "Правя сайтове за Вашия бизнес в България — бързи, намираеми в Google, с фиксирана цена, и с код на ваше име. Ловеч и страната.",
+      "Правя сайтове за твоя бизнес в България — бързи, намираеми в Google, с фиксирана цена, и с код на твое име. София и страната.",
     siteName: "Marko Moev",
     keywords: [
       "Marko Moev",
@@ -33,7 +33,7 @@ const metaByLocale: Record<
   en: {
     title: "Marko Moev — websites for your business",
     description:
-      "I build websites for your business in Bulgaria — fast, findable on Google, at a fixed price, with the code in your name. Lovech and nationwide.",
+      "I build websites for your business in Bulgaria — fast, findable on Google, at a fixed price, with the code in your name. Sofia and nationwide.",
     siteName: "Marko Moev",
     keywords: [
       "Marko Moev",
@@ -113,7 +113,7 @@ export default async function Layout({
           THESIS: The homepage is a type-led offer on sky paper. The Plenty phone is the proof; yellow and red stay accents, never fields.
           OWN-WORLD: Daylight sky (#CFE6F8), navy ink (#0B1F3A), indigo action and atmosphere (#1F5FD6). Yellow and red only as marks — underlines, dots, a stripe. Extra-condensed grotesque.
           STORY: A business owner sees a site for them, believes Marko launches fast at a fixed price with code they own, and books a free call.
-          FIRST VIEWPORT: Sky paper, indigo wash, indigo grid. Location pill. Stacked vinyl headline with indigo “Вашия/your”. Subhead. Two pill buttons. Plenty phone on the right, scroll-tilted, no stickers.
+          FIRST VIEWPORT: Sky paper, indigo wash, indigo grid. Location pill. Stacked vinyl headline with indigo “твоя/your”. Subhead. Two pill buttons. Plenty phone on the right, scroll-tilted, no stickers.
           FORM: Type-led paper with product proof (middle path).
           FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
         */}

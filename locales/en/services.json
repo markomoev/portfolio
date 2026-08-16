@@ -12,10 +12,9 @@
         "up to 6 pages",
         "SEO basics",
         "Google Business profile",
-        "contact form",
-        "admin panel — coming soon"
+        "contact form"
       ],
-      "outcome": "A site that shows up on Google, and access to change the content yourself."
+      "outcome": "A site that shows up on Google, with a contact form and the code in your name."
     },
     {
       "number": "02",
@@ -28,7 +27,7 @@
       "number": "03",
       "title": "Shop or appointment booking",
       "for": "When you need to sell or take bookings online.",
-      "includes": ["products or a calendar", "payments", "notifications", "admin panel — coming soon"],
+      "includes": ["products or a calendar", "payments", "notifications"],
       "outcome": "A system that works without picking up the phone for every request."
     }
   ]
